@@ -5,7 +5,11 @@
 <meta name="description" content="Exposición de sismología, música y mapping de Bastián I. Garrido Kogan: recorrido interactivo con vista general y POV de un niño y de un adulto.">
 <meta property="og:title" content="El sonido del movimiento">
 <meta property="og:description" content="Recorrido interactivo de la exposición: vista general, POV niño y POV adulto.">
-<meta property="og:image" content="g/f_sala_m1.jpg">
+<meta property="og:image" content="https://bgarridosys.github.io/sonido-del-movimiento/g/f_sala_m1.jpg">
+<meta property="og:url" content="https://bgarridosys.github.io/sonido-del-movimiento/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>El sonido del movimiento</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +30,8 @@
 :root[data-theme="dark"]{color-scheme:dark;--paper:#0F1314;--paper-2:#161C1D;--ink:#E4E9E6;--ink-2:#9AA6A2;--rule:#2A3334;
   --nazca:#5DB2CE;--pen:#E0685C;--verde:#6CC08C;--card:#141A1B;--trace:#5DB2CE;}
 *{box-sizing:border-box}
+html{scroll-padding-top:var(--hdr,72px)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
 .wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
 a{color:var(--nazca)}
@@ -45,6 +51,15 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 nav{display:flex;gap:4px 16px;flex-wrap:wrap}
 nav a{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);text-decoration:none}
 nav a:hover,nav a:focus-visible{color:var(--ink)}
+@media (max-width:700px){
+  header.top .wrap{gap:2px;padding-block:8px 0}
+  .brand{font-size:16px}
+  nav{flex-wrap:nowrap;overflow-x:auto;width:100%;gap:18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+      -webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+  nav::-webkit-scrollbar{display:none}
+  nav a{white-space:nowrap;padding-block:8px;flex:none}
+  nav a:last-child{padding-right:28px}
+}
 .hero{padding-block:clamp(32px,6vw,64px) 24px;border-top:0}
 .hero .wrap{gap:18px}
 .hero h1{font-size:clamp(56px,11vw,132px);font-weight:700;text-transform:uppercase;letter-spacing:-.005em;line-height:.88}
@@ -55,7 +70,7 @@ nav a:hover,nav a:focus-visible{color:var(--ink)}
 /* ---- sismograma / línea de tiempo ---- */
 .seis{display:flex;flex-direction:column;gap:6px}
 .seis-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.seis canvas{width:100%;height:120px;display:block;cursor:pointer;background:var(--card);border:1px solid var(--rule);border-radius:4px}
+.seis canvas{width:100%;height:120px;display:block;cursor:pointer;touch-action:pan-y;background:var(--card);border:1px solid var(--rule);border-radius:4px}
 .seis canvas:focus-visible{outline:2px solid var(--nazca);outline-offset:2px}
 /* ---- reproductor ---- */
 .player{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:24px;align-items:start}
@@ -77,7 +92,9 @@ nav a:hover,nav a:focus-visible{color:var(--ink)}
 .info{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:14px}
 .info h3{font-size:34px}
 .info .period{font-family:var(--mono);font-size:13px;color:var(--pen)}
-.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:15.5px;line-height:1.45}
+.info .sub{font-style:italic;color:var(--ink-2)}
+.info .more{font-family:var(--mono);font-size:12.5px;align-self:flex-start}
+.kv{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:15.5px;line-height:1.45}
 .kv dt{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);padding-top:3px}
 .kv dd{margin:0}
 /* ---- momentos ---- */
@@ -113,8 +130,14 @@ blockquote{margin:0;padding:0 0 0 22px;border-left:3px solid var(--pen);font-siz
 .grid figcaption{font-size:14px;line-height:1.4;color:var(--ink-2)}
 dialog{border:0;padding:0;background:transparent;max-width:min(1200px,94vw)}
 dialog::backdrop{background:rgba(5,8,9,.86)}
-dialog img{max-height:82vh;width:auto;margin:0 auto;display:block;border-radius:3px}
+dialog img{max-height:78vh;max-width:100%;width:auto;height:auto;margin:0 auto;display:block;border-radius:3px}
 dialog p{color:#E4E9E6;font-size:15px;text-align:center;margin-top:10px}
+dialog .nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;font-size:34px;line-height:1;background:rgba(228,233,230,.88);color:#15191A;border:0;border-radius:3px;cursor:pointer}
+dialog .prev{left:8px}dialog .next{right:8px}
+dialog .nav:focus-visible,dialog .close:focus-visible{outline:2px solid #5DB2CE;outline-offset:2px}
+dialog .count{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:#9AA6A2;margin-top:10px}
+dialog img{touch-action:pan-y;user-select:none;-webkit-user-drag:none}
+dialog p+p{margin-top:4px}
 dialog .close{position:absolute;top:8px;right:8px;font-family:var(--mono);background:#E4E9E6;color:#15191A;border:0;border-radius:3px;padding:6px 10px;cursor:pointer}
 /* ---- personas y referencias ---- */
 .people{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:0;border-top:1px solid var(--ink)}
@@ -125,6 +148,7 @@ dialog .close{position:absolute;top:8px;right:8px;font-family:var(--mono);backgr
 .refs{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--ink);counter-reset:r}
 .refs li{list-style:none;display:grid;grid-template-columns:90px minmax(0,1fr);gap:16px;padding-block:12px;border-bottom:1px solid var(--rule);font-size:15.5px;line-height:1.5}
 @media (max-width:600px){.refs li{grid-template-columns:1fr;gap:4px}}
+.refs a{overflow-wrap:anywhere}
 .refs .tag{font-family:var(--mono);font-size:12px;color:var(--nazca)}
 .refs{padding:0;margin:0}
 footer{border-top:1px solid var(--ink);padding-block:28px 48px;font-size:14px;color:var(--ink-2)}
@@ -135,7 +159,7 @@ footer .wrap{display:flex;flex-direction:column;gap:8px}
 <header class="top"><div class="wrap">
   <div class="brand">El sonido del movimiento</div>
   <nav aria-label="Secciones">
-    <a href="#recorrido">Recorrido</a><a href="#obra">La obra</a><a href="#autor">Autor</a><a href="#momentos">Momentos</a><a href="#proceso">Proceso</a><a href="#artistas">Artistas</a><a href="#referencias">Referencias</a>
+    <a href="#recorrido">Recorrido</a><a href="#obra">La obra</a><a href="#autor">Presentación</a><a href="#momentos">Momentos</a><a href="#proceso">Proceso</a><a href="#artistas">Artistas</a><a href="#referencias">Referencias</a>
   </nav>
 </div></header>
 
@@ -143,13 +167,14 @@ footer .wrap{display:flex;flex-direction:column;gap:8px}
   <div class="eyebrow">Exposición · sismología, música y mapping · Chile, 17°S–43°S</div>
   <h1>El sonido del <span>movimiento</span></h1>
   <p class="lede">Un viaje espacio-temporal por una de las zonas más sísmicas del mundo: la subducción de la placa de Nazca bajo la placa Sudamericana. Del relato de Tren Tren y Caicai Vilu a la pandemia del coronavirus.</p>
-  <div class="byline"><span>Autor <b>Bastián I. Garrido Kogan</b></span><span>Maqueta audiovisual <b>V5 · versión para niños</b></span><span>Duración <b class="mono">9 min 07 s</b></span></div>
+  <div class="byline"><span>Autor <b>Bastián I. Garrido Kogan</b></span><span>Maqueta audiovisual <b>V5 · versión para niños v2</b></span><span>Duración <b class="mono">9 min 07 s</b></span></div>
 </div></section>
 
 <section id="recorrido" style="border-top:0;padding-top:0"><div class="wrap">
   <div class="seis">
     <div class="seis-top"><span class="eyebrow">Sismograma de la exposición · envolvente del sonido, 0,5 s por muestra</span><span class="mono" id="clock" style="font-size:13px">00:00 / 09:07</span></div>
-    <canvas id="seis" tabindex="0" aria-label="Línea de tiempo de la exposición. Haga clic para saltar a un instante; use las flechas para avanzar o retroceder 10 segundos."></canvas>
+    <canvas id="seis" tabindex="0" role="slider" aria-label="Línea de tiempo de la exposición" aria-describedby="seis-help" aria-valuemin="0" aria-valuemax="547" aria-valuenow="0" aria-valuetext="00:00, M0 La creación"></canvas>
+    <span id="seis-help" hidden>Flechas: 10 segundos. Re Pág y Av Pág: momento anterior o siguiente. Inicio y Fin: principio o final.</span>
   </div>
   <div class="player">
     <div class="stage">
@@ -170,7 +195,7 @@ footer .wrap{display:flex;flex-direction:column;gap:8px}
   <div class="sec-head"><span class="eyebrow">Introducción</span><h2>La obra</h2></div>
   <div class="prose">
     <p>El objetivo de la exposición es mostrar el aporte cultural de la sismología: desde el relato de los pueblos originarios sobre la creación del mundo y la interacción de las divinidades con el hombre (la cosmovisión mapuche) hasta la ciencia actual, como herramienta para preservar y evidenciar hitos históricos. Mezcla técnicas visuales, como mapping e impresión 3D, con distintas técnicas y estilos musicales.</p>
-    <p>La exposición se desarrolla en una única sala. Dos pares de paneles rodean al <strong>instrumento relator</strong>: los de los muros oriente y poniente muestran una animación de estilo caricatura, y los de los muros norte y sur, la transcripción del relato. El relator es una impresión 3D de Chile continental, de Arica a Castro, apoyada sobre la subducción de la placa de Nazca bajo la Sudamericana, donde se producen la mayor cantidad de terremotos del país. Está formado por 26 secciones de un grado de latitud cada una. Sobre él se proyecta un mapping que cuenta la misma historia que los paneles.</p>
+    <p>La exposición se desarrolla en una única sala. Dos pares de paneles rodean al <strong>instrumento relator</strong>: los de los muros oriente y poniente muestran una animación de estilo caricatura, y los de los muros norte y sur, la transcripción del relato. El relator es una impresión 3D de Chile (17°S–43°S), apoyada sobre la subducción de la placa de Nazca bajo la Sudamericana, donde se produce la mayor cantidad de terremotos del país. Está formado por 26 secciones de un grado de latitud cada una. Sobre él se proyecta un mapping que cuenta la misma historia que los paneles.</p>
     <p>Los momentos avanzan en orden cronológico según los avances de la sismología, desde la creencia hasta una concepción científica de los terremotos, apoyados por extractos de artículos científicos. La música recorre el tiempo en sentido inverso: parte con la inteligencia artificial y termina en sonidos naturales.</p>
     <p>El público es parte de la obra. En el momento 0 arma el relator con sus propias manos, sección por sección, y después lo rodea por ambos costados para escuchar.</p>
   </div>
@@ -209,11 +234,11 @@ footer .wrap{display:flex;flex-direction:column;gap:8px}
 </div></section>
 
 <footer><div class="wrap">
-  <p>Los videos de esta página son la maqueta audiovisual V5 en su versión para niños (9 min 07 s): simulan la sala, las proyecciones y el sonido original de cada momento, para revisar la obra antes del montaje. Las figuras humanas son referencias de escala.</p>
+  <p>Los videos de esta página son la maqueta audiovisual V5 en su versión para niños v2 (9 min 07 s): simulan la sala, las proyecciones y el sonido original de cada momento, para revisar la obra antes del montaje. Las figuras humanas son referencias de escala.</p>
   <p>Maqueta, animaciones y composición desarrolladas con asistencia de Claude (Anthropic) a partir del guion, los bocetos y los audios del autor.</p>
 </div></footer>
 
-<dialog id="lb"><button class="close" id="lb-close">Cerrar</button><img id="lb-img" alt=""><p id="lb-cap"></p></dialog>
+<dialog id="lb" aria-label="Imagen ampliada"><button class="close" id="lb-close">Cerrar</button><button class="nav prev" id="lb-prev" aria-label="Imagen anterior">‹</button><button class="nav next" id="lb-next" aria-label="Imagen siguiente">›</button><img id="lb-img" alt="" draggable="false"><p id="lb-count" class="count"></p><p id="lb-cap"></p></dialog>
 
 <script>
 const ENV=[19, 32, 41, 37, 35, 40, 42, 45, 52, 63, 63, 67, 55, 52, 53, 57, 61, 60, 55, 55, 60, 56, 56, 53, 52, 51, 63, 64, 62, 59, 60, 61, 64, 60, 63, 58, 53, 61, 56, 55, 54, 60, 55, 55, 56, 57, 54, 56, 56, 56, 59, 59, 59, 59, 60, 59, 63, 59, 62, 64, 62, 60, 63, 62, 58, 62, 59, 63, 59, 62, 60, 61, 56, 59, 62, 60, 56, 53, 49, 58, 59, 62, 64, 60, 65, 66, 57, 59, 59, 62, 57, 68, 54, 50, 47, 46, 45, 46, 50, 54, 54, 50, 50, 55, 52, 51, 48, 48, 47, 52, 54, 51, 55, 56, 56, 54, 54, 55, 54, 48, 42, 38, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 11, 14, 33, 63, 60, 58, 57, 56, 45, 59, 52, 56, 55, 46, 60, 53, 53, 44, 21, 58, 53, 19, 59, 56, 55, 57, 31, 56, 56, 55, 43, 63, 54, 35, 56, 59, 55, 58, 54, 55, 50, 52, 52, 54, 30, 8, 57, 64, 54, 53, 59, 54, 51, 42, 59, 56, 53, 29, 10, 8, 58, 46, 59, 57, 48, 56, 54, 51, 9, 49, 58, 39, 60, 59, 49, 50, 56, 54, 47, 50, 57, 47, 59, 57, 54, 14, 27, 21, 19, 21, 63, 58, 55, 56, 55, 57, 46, 57, 57, 54, 54, 56, 50, 54, 51, 45, 53, 51, 53, 47, 48, 8, 11, 59, 61, 56, 57, 54, 59, 55, 53, 25, 13, 58, 58, 55, 53, 56, 60, 51, 53, 10, 53, 58, 41, 48, 50, 14, 53, 58, 56, 51, 44, 61, 56, 53, 57, 51, 55, 16, 61, 39, 54, 56, 52, 55, 56, 56, 54, 16, 61, 52, 59, 57, 53, 58, 51, 55, 42, 47, 17, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 21, 15, 0, 45, 63, 60, 63, 54, 57, 53, 5, 57, 44, 58, 57, 4, 53, 58, 54, 8, 9, 61, 52, 60, 55, 50, 55, 57, 58, 52, 53, 19, 15, 56, 37, 61, 60, 59, 56, 62, 52, 56, 59, 58, 57, 59, 45, 34, 7, 59, 61, 50, 61, 58, 50, 29, 54, 54, 56, 31, 52, 58, 53, 2, 9, 61, 59, 56, 27, 60, 55, 66, 56, 50, 64, 60, 57, 57, 54, 47, 5, 6, 49, 65, 66, 60, 60, 58, 38, 60, 62, 61, 61, 63, 62, 59, 56, 10, 65, 57, 64, 65, 60, 60, 64, 63, 62, 62, 62, 57, 54, 28, 26, 51, 63, 62, 62, 60, 61, 64, 51, 62, 56, 59, 59, 51, 63, 64, 55, 9, 63, 62, 59, 62, 62, 53, 12, 55, 60, 56, 56, 41, 57, 60, 40, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 16, 15, 44, 42, 30, 30, 62, 66, 59, 67, 71, 62, 62, 64, 63, 59, 62, 62, 64, 64, 47, 18, 63, 67, 64, 65, 63, 67, 59, 60, 45, 68, 66, 63, 65, 59, 70, 66, 65, 64, 60, 63, 44, 65, 69, 66, 65, 75, 62, 67, 68, 64, 63, 65, 70, 63, 64, 62, 64, 61, 54, 23, 8, 4, 4, 50, 44, 41, 45, 45, 45, 45, 47, 46, 40, 48, 51, 34, 47, 49, 50, 39, 47, 46, 43, 49, 34, 47, 44, 47, 39, 47, 44, 40, 50, 46, 42, 46, 47, 45, 45, 48, 35, 50, 43, 46, 33, 40, 35, 9, 9, 10, 11, 40, 69, 68, 56, 72, 64, 57, 72, 63, 63, 45, 65, 69, 62, 66, 52, 67, 64, 59, 24, 62, 71, 57, 69, 64, 49, 64, 66, 69, 65, 59, 61, 60, 53, 31, 10, 14, 13, 12, 11, 11, 16, 14, 14, 14, 15, 19, 14, 35, 42, 45, 51, 50, 51, 55, 54, 49, 50, 50, 51, 56, 57, 56, 56, 57, 57, 57, 54, 57, 55, 49, 50, 54, 49, 50, 51, 51, 52, 51, 58, 61, 61, 56, 50, 60, 58, 55, 50, 58, 55, 48, 51, 50, 54, 51, 47, 49, 50, 51, 59, 60, 61, 58, 57, 60, 60, 54, 57, 54, 49, 50, 54, 50, 52, 51, 50, 54, 50, 60, 62, 62, 60, 50, 59, 55, 52, 50, 49, 48, 47, 48, 50, 50, 51, 50, 52, 58, 58, 51, 50, 52, 53, 52, 53, 53, 57, 56, 50, 51, 51, 49, 53, 57, 50, 50, 48, 51, 51, 51, 51, 52, 52, 52, 52, 52, 53, 52, 49, 53, 52, 51, 52, 53, 51, 47, 51, 42, 45, 35, 29, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 11, 51, 66, 67, 69, 63, 58, 69, 67, 57, 59, 38, 31, 43, 68, 68, 63, 37, 71, 65, 56, 39, 63, 70, 63, 64, 64, 66, 67, 63, 60, 54, 37, 44, 64, 67, 48, 66, 69, 66, 60, 58, 57, 46, 20, 37, 26, 24, 40, 35, 32, 32, 31, 31, 41, 28, 31, 23, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 20, 26, 21, 24, 65, 74, 71, 63, 33, 73, 72, 71, 69, 62, 64, 67, 62, 66, 69, 62, 58, 25, 75, 61, 74, 69, 68, 66, 66, 70, 75, 64, 29, 28, 30, 66, 75, 74, 70, 47, 69, 70, 65, 55, 69, 68, 71, 63, 64, 66, 65, 63, 68, 68, 63, 60, 71, 31, 30, 30, 32, 39, 40, 77, 62, 70, 75, 68, 61, 74, 74, 58, 61, 70, 69, 72, 59, 36, 37, 73, 77, 72, 69, 63, 70, 71, 64, 34, 33, 56, 76, 70, 68, 54, 63, 71, 65, 60, 68, 68, 64, 69, 72, 75, 67, 59, 65, 68, 45, 32, 12, 19, 12, 15, 18, 18, 22, 17, 20, 23, 22, 21, 19, 22, 22, 23, 20, 20, 26, 18, 17, 24, 15, 18, 16, 23, 19, 21, 20, 20, 24, 17, 18, 20, 13, 20, 16, 15, 20, 16, 19, 16, 16, 16, 16, 15, 13, 16, 14, 15, 17, 15, 18, 15, 15, 19, 25, 15, 18, 21, 19, 24, 25, 27, 26, 21, 23, 20, 18, 22, 17, 18, 20, 24, 18, 11, 18, 10, 15, 16, 20, 22, 17, 21, 21, 25, 23, 25, 25, 24, 27, 27, 27, 29, 29, 38, 38, 30, 33, 35, 31, 41, 29, 24, 22, 17, 10, 0];
@@ -222,28 +247,28 @@ const TOTAL=B[6];
 const M=[
  {k:"M0",t:"La creación",period:"Hoy · armado del relator",img:"g/f_pov_adulto_m0.jpg",
   sub:"El público arma el relator.",
-  txt:"Las 26 secciones del relator, de Arica (17°S) a Castro (43°S), esperan en cuatro repisas junto al muro oriente. Quince personas del público las toman una a una y las encajan sobre la subducción mientras suena una impresora 3D. Sobre el relator se proyecta el título «M0: La creación», que sólo se completa cuando la última pieza queda en su lugar.",
+  txt:"Las 26 secciones del relator (17°S–43°S) esperan en cuatro repisas junto al muro oriente. Quince personas del público las toman una a una y las encajan sobre la subducción mientras suena una impresora 3D. Sobre el relator se proyecta el título «M0: La creación», que solo se completa cuando la última pieza queda en su lugar.",
   kv:[["Relator","Título M0 proyectado; cada sección muestra su fragmento al quedar ubicada."],["Paneles","Sin proyección."],["Sonido","Impresora 3D; su duración se ajusta al ritmo del armado."]]},
  {k:"M1",t:"Chile ancestral",period:"Antes de 1500",img:"g/f_sala_m1.jpg",
   sub:"La sismología como creencia.",
   txt:"El relato mapuche de Tren Tren Vilu y Caicai Vilu: Caicai, la serpiente del océano, levanta grandes tsunamis; Tren Tren protege al pueblo elevando los cerros. La segunda parte recuerda que la conquista no preservó los relatos de los pueblos originarios y que la historia sísmica escrita comienza hace unos cinco siglos.",
   kv:[["Relator","Relieve de Chile; el mar y las serpientes avanzan de norte a sur, los cerros se elevan; luego manos que cubren el territorio."],["Paneles","Caricatura del relato y transcripción."],["Música","Voz generada con inteligencia artificial (referencia: Violeta Parra)."],["Ciencia","Ruiz y Madariaga (2018); Ruiz et al. (2025)."]]},
- {k:"M2",t:"Chile colonial",period:"1500–1970",img:"g/f_sala_m2.jpg",
+ {k:"M2",t:"De la Colonia a la República",period:"1500–1970",img:"g/f_sala_m2.jpg",
   sub:"Los primeros registros sísmicos.",
   txt:"El poema «Epopeya de Chillán», de Nicanor Parra, acompaña cuatro terremotos que transformaron las ciudades: Santiago 1647, Valparaíso 1730, Valparaíso 1906 y Chillán 1939. Sobre el relator, cada evento late como un corazón y sus ondas se propagan desde el epicentro.",
-  kv:[["Relator","Mapas de calor con isocurvas: circulares en 1647 y 1939, elípticas norte–sur en 1730 y 1906."],["Paneles","Un corazón rodeado de flores que toma color; fichas de cada terremoto."],["Música","Lectura del poema con autotune, técnica desarrollada por ingenieros que procesaban señales sísmicas."],["Ciencia","Carvajal et al. (2017); Udías et al. (2012)."]]},
+  kv:[["Relator","Mapas de calor con isocurvas: circulares en 1647 y 1939, elípticas norte–sur en 1730 y 1906."],["Paneles","Un corazón rodeado de flores que toma color; fichas de cada terremoto."],["Música","Lectura del poema con autotune, técnica creada por Andy Hildebrand, un ingeniero que procesaba señales sísmicas para la exploración petrolera."],["Ciencia","Carvajal et al. (2017); Udías et al. (2012)."]]},
  {k:"M3",t:"Punto de inflexión",period:"Década de 1970",img:"g/f_sala_m3.jpg",
   sub:"Inicio de la sismología moderna.",
-  txt:"Un joven Raúl Madariaga vuelve a Chile tras doctorarse en el MIT, en plena efervescencia de la tectónica de placas, y conoce a José Vicente Asuar, que explora el computador en la música. En un encuentro imaginado, Raúl le propone usar su computador analógico para escuchar un ciclo sísmico.",
-  kv:[["Relator","Las secciones se encienden una a una como el computador de Asuar; luego Chile en azul, con gotas donde caen los sismos."],["Paneles","Caricatura animada de Raúl y José Vicente; partículas que caen como sismos en una ventana latitud–tiempo."],["Música","Estudio N.º 11 en mi bemol (Chopin), interpretado por el COMDASUAR de José Vicente Asuar (1973)."]]},
+  txt:"Un joven Raúl Madariaga vuelve a Chile tras doctorarse en el MIT, en plena efervescencia de la tectónica de placas, y conoce a José Vicente Asuar, que explora el computador en la música. En un encuentro imaginado, Raúl le propone usar su computador digital-analógico para escuchar un ciclo sísmico.",
+  kv:[["Relator","Las secciones se encienden una a una como el computador de Asuar; luego Chile en azul, con gotas donde caen los sismos."],["Paneles","Caricatura animada de Raúl y José Vicente; partículas que caen como sismos en una ventana latitud–tiempo."],["Música","Estudio Op. 10 N.º 11 en mi bemol mayor (Chopin), programado por José Vicente Asuar en computador y sintetizador (<i>El computador virtuoso</i>, 1973)."]]},
  {k:"M4",t:"Memorias I",period:"11 de septiembre de 1973",img:"g/f_sala_m4.jpg",
-  sub:"El golpe de estado en los sismogramas.",
-  txt:"El imaginario del momento anterior retrocede: el encuentro no ocurrió. Raúl vuelve a Estados Unidos y luego a Francia, donde llega a ser profesor emérito de la École Normale Supérieure y uno de los sismólogos más reconocidos del mundo. En la caricatura envejece hasta hoy.",
-  kv:[["Relator","Registros sísmicos del 11 de septiembre de 1973 en escala de grises; una mancha roja se expande desde Santiago al resto de Chile."],["Paneles","Reversa acelerada del imaginario y envejecimiento de Raúl."],["Música","Según el guion: clásica disonante (Rameau, «Le Rappel des Oiseaux», 1724)."],["Ciencia","León-Ríos et al. (2024)."]]},
+  sub:"El golpe de Estado en los sismogramas.",
+  txt:"El imaginario del momento anterior retrocede: el encuentro no ocurrió. Raúl vuelve al MIT y luego se radica en Francia, donde trabaja por más de cuarenta años y llega a ser profesor emérito de la École Normale Supérieure y uno de los sismólogos más reconocidos del mundo. En la caricatura envejece hasta hoy.",
+  kv:[["Relator","Registros sísmicos del 11 de septiembre de 1973 en escala de grises; una mancha roja se expande desde Santiago al resto de Chile."],["Paneles","Reversa acelerada del imaginario y envejecimiento de Raúl."],["Música","<i>Cuarteto para cuerdas</i> (1958), de Jorge Peña Hen, interpretado por el Cuarteto de Santiago."],["Ciencia","León-Ríos et al. (2025)."]]},
  {k:"M5",t:"Memorias II",period:"2020",img:"g/f_sala_m5.jpg",
   sub:"Pandemia de COVID-19.",
   txt:"A comienzos de 2020, una mujer camina con su teléfono por una ciudad acelerada. Llegan el coronavirus y la cuarentena: cierran los negocios, se vacían las calles y el ruido humano cae. Al terminar el relato cruza a un bosque nativo, donde un puma cachorro avanza junto a un río.",
-  kv:[["Relator","Chile en neón con distorsión fluorescente; al terminar el relato crecen manchas verdes hasta cubrirlo."],["Paneles","Animación de la ciudad al bosque; ficha sobre el puma en Santiago y la caída del ruido sísmico."],["Música","Según el guion: sonido ambiente (Björk) e instrumentos de la cultura mapuche."],["Ciencia","Ojeda y Ruiz (2021); Lecocq et al. (2020)."]]}
+  kv:[["Relator","Chile en neón con distorsión fluorescente; al terminar el relato crecen manchas verdes hasta cubrirlo."],["Paneles","Animación de la ciudad al bosque; ficha sobre el puma en Santiago y la caída del ruido sísmico."],["Música","Solo sonido ambiente."],["Ciencia","Ojeda y Ruiz (2021); Lecocq et al. (2020)."]]}
 ];
 const VIEWS={sala:"Vista general desde lo alto de la sala: se ven a la vez el relator, los paneles y el público.",
  nino:"Un niño de 1,28 m, en primera fila del costado poniente. En M0 la cámara va en su cabeza mientras arma el relator.",
@@ -263,14 +288,17 @@ function load(v,m,local,play){
 }
 vid.addEventListener('loadedmetadata',()=>{if(pendingSeek){try{vid.currentTime=Math.min(pendingSeek,vid.duration-0.2)}catch(e){}}pendingSeek=null;if(wantPlay){vid.play().catch(()=>{})}});
 vid.addEventListener('ended',()=>{if(mi<5)load(view,mi+1,0,true)});
-vid.addEventListener('timeupdate',()=>{draw();document.getElementById('clock').textContent=fmt(globalT())+' / '+fmt(TOTAL)});
-function seekGlobal(t){t=Math.max(0,Math.min(TOTAL-0.3,t));let m=0;while(m<5&&t>=B[m+1])m++;const play=!vid.paused;
+vid.addEventListener('timeupdate',()=>{if(dragT!==null)return;draw();setAria(globalT());document.getElementById('clock').textContent=fmt(globalT())+' / '+fmt(TOTAL)});
+let dragT=null;
+function momentAt(t){let m=0;while(m<5&&t>=B[m+1])m++;return m}
+function setAria(t){const m=momentAt(t);cv.setAttribute('aria-valuenow',Math.round(t));cv.setAttribute('aria-valuetext',fmt(t)+', '+M[m].k+' '+M[m].t)}
+function seekGlobal(t){t=Math.max(0,Math.min(TOTAL-0.3,t));const m=momentAt(t);setAria(t);const play=!vid.paused;
   if(m===mi){vid.currentTime=t-B[m];draw()}else load(view,m,t-B[m],play)}
 document.querySelectorAll('.views button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.v!==view)load(b.dataset.v,mi,vid.currentTime,!vid.paused)}));
 const chips=document.getElementById('chips');
 M.forEach((m,i)=>{const b=document.createElement('button');b.innerHTML=`<b>${m.k}</b>${m.t}`;b.setAttribute('aria-current',i===0);b.addEventListener('click',()=>load(view,i,0,!vid.paused));chips.appendChild(b)});
 function renderInfo(){const m=M[mi];const el=document.getElementById('info');
-  el.innerHTML=`<span class="eyebrow">${m.k} · ${fmt(B[mi])}–${fmt(B[mi+1])}</span><h3>${m.t}</h3><span class="period">${m.period}</span><p>${m.txt}</p><dl class="kv">${m.kv.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl>`}
+  el.innerHTML=`<span class="eyebrow">${m.k} · ${fmt(B[mi])}–${fmt(B[mi+1])}</span><h3>${m.t}</h3><span class="period">${m.period}</span><p class="sub">${m.sub}</p><dl class="kv">${m.kv.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl><a class="more" href="#m-${m.k}">Leer el relato completo ↓</a>`}
 /* sismograma */
 const cv=document.getElementById('seis');
 function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
@@ -279,11 +307,12 @@ function draw(){const r=cv.getBoundingClientRect();const dpr=window.devicePixelR
   const c=cv.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,W,H);
   const x=t=>t/TOTAL*W, mid=H*0.56, amp=H*0.36;
   c.font='11px "IBM Plex Mono", monospace';
+  const cur=dragT!==null?momentAt(dragT):mi;
   for(let i=0;i<6;i++){const x0=x(B[i]),x1=x(B[i+1]);
-    if(i===mi){c.fillStyle=css('--paper-2');c.fillRect(x0,0,x1-x0,H)}
+    if(i===cur){c.fillStyle=css('--paper-2');c.fillRect(x0,0,x1-x0,H)}
     c.strokeStyle=css('--rule');c.lineWidth=1;c.beginPath();c.moveTo(x0+.5,0);c.lineTo(x0+.5,H);c.stroke();
-    c.fillStyle=i===mi?css('--nazca'):css('--ink-2');c.fillText(M[i].k,x0+5,14)}
-  const g=globalT();c.lineWidth=1;
+    c.fillStyle=i===cur?css('--nazca'):css('--ink-2');c.fillText(M[i].k,x0+5,14)}
+  const g=dragT!==null?dragT:globalT();c.lineWidth=1;
   for(let pass=0;pass<2;pass++){c.strokeStyle=pass?css('--trace'):css('--ink-2');c.globalAlpha=pass?1:.45;c.beginPath();
     for(let j=0;j<ENV.length;j++){const t=j*0.5;if(pass?t>g:t<=g)continue;const xx=x(t),v=ENV[j]/99,s=(j%2?1:-1);
       const y=mid+s*v*amp*(0.55+0.45*Math.abs(Math.sin(j*1.7)));if(!pass&&t<=g)continue;
@@ -292,16 +321,25 @@ function draw(){const r=cv.getBoundingClientRect();const dpr=window.devicePixelR
   c.globalAlpha=1;
   const px=x(g);c.strokeStyle=css('--pen');c.lineWidth=2;c.beginPath();c.moveTo(px,18);c.lineTo(px,H);c.stroke();
   c.fillStyle=css('--pen');c.beginPath();c.arc(px,20,3.5,0,7);c.fill()}
-cv.addEventListener('click',e=>{const r=cv.getBoundingClientRect();seekGlobal((e.clientX-r.left)/r.width*TOTAL)});
-cv.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){seekGlobal(globalT()+10);e.preventDefault()}if(e.key==='ArrowLeft'){seekGlobal(globalT()-10);e.preventDefault()}});
+function tAt(e){const r=cv.getBoundingClientRect();return Math.max(0,Math.min(TOTAL,(e.clientX-r.left)/r.width*TOTAL))}
+function preview(t){dragT=t;draw();document.getElementById('clock').textContent=fmt(t)+' / '+fmt(TOTAL)}
+cv.addEventListener('pointerdown',e=>{if(e.button>0)return;cv.setPointerCapture(e.pointerId);preview(tAt(e))});
+cv.addEventListener('pointermove',e=>{if(dragT!==null)preview(tAt(e))});
+cv.addEventListener('pointerup',e=>{if(dragT===null)return;const t=tAt(e);dragT=null;seekGlobal(t)});
+cv.addEventListener('pointercancel',()=>{dragT=null;draw()});
+cv.addEventListener('keydown',e=>{const g=globalT();let t=null;
+  if(e.key==='ArrowRight'||e.key==='ArrowUp')t=g+10;else if(e.key==='ArrowLeft'||e.key==='ArrowDown')t=g-10;
+  else if(e.key==='Home')t=0;else if(e.key==='End')t=TOTAL;
+  else if(e.key==='PageDown')t=B[Math.min(6,mi+1)];else if(e.key==='PageUp')t=(g-B[mi]>2||mi===0)?B[mi]:B[mi-1];
+  if(t!==null){seekGlobal(t);e.preventDefault()}});
 addEventListener('resize',draw);
 matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
 new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
 /* momentos */
 const mm=document.getElementById('moments');
-M.forEach((m,i)=>{const d=document.createElement('article');d.className='mrow';
+M.forEach((m,i)=>{const d=document.createElement('article');d.className='mrow';d.id='m-'+m.k;
  d.innerHTML=`<div class="mnum">${m.k}<small>${m.period}</small></div><div class="mbody"><h3>${m.t}</h3><p class="sub">${m.sub}</p><p>${m.txt}</p><dl class="kv">${m.kv.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl></div><div class="mfig"><img src="${m.img}" alt="${m.k} ${m.t} en la maqueta de la sala" loading="lazy"><button type="button">Ver ${m.k} en el recorrido</button></div>`;
- d.querySelector('button').addEventListener('click',()=>{load(view,i,0,true);document.getElementById('recorrido').scrollIntoView({behavior:'smooth'})});mm.appendChild(d)});
+ d.querySelector('button').addEventListener('click',()=>{load(view,i,0,true);document.getElementById('recorrido').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});mm.appendChild(d)});
 /* proceso */
 const ST=[
  ["Idea y guion","El concepto nace en papel: una exposición sobre el aporte cultural de la sismología a través de la música.",[
@@ -314,7 +352,7 @@ const ST=[
   ["g/p07_sala_m5.jpg","Memorias II: registros espectrales de la cuarentena."]]],
  ["De la ciencia a la forma","La geometría de la subducción y el relieve de Chile definen la forma del relator.",[
   ["g/p08_subduccion.jpg","Profundidad del contacto entre las placas de Nazca y Sudamericana."],
-  ["g/p09_contorno.jpg","Contorno de Chile continental sobre la superficie de subducción."],
+  ["g/p09_contorno.jpg","Contorno de Chile (17°S–43°S) sobre la superficie de subducción."],
   ["g/p10_relieve.jpg","Relieve de Chile usado como base de las proyecciones (VeryGoodMaps)."]]],
  ["Fabricación","Las secciones se imprimen en 3D y se prueban como maqueta física.",[
   ["g/p11_impresion.jpg","Secciones del relator recién impresas."],
@@ -330,18 +368,30 @@ const ST=[
   ["g/p19_anim_m5a.jpg","M5: la ciudad acelerada antes de la cuarentena."],
   ["g/p20_anim_m5b.jpg","M5: el puma cachorro en el bosque nativo."]]],
  ["La sala","La maqueta audiovisual reúne relator, paneles y público en una sola escena.",[
-  ["g/f_sala_m0.jpg","M0: el relator ya armado."],["g/f_sala_m2.jpg","M2: terremoto de Valparaíso de 1730 sobre el relator."],
+  ["g/f_sala_m0.jpg","M0: el relator ya armado."],["g/f_sala_m2.jpg","M2: terremoto de Santiago de 1647 sobre el relator."],
   ["g/f_sala_m3.jpg","M3: el ciclo sísmico en azul."],["g/f_sala_m5.jpg","M5: el relator cubierto de verde."],
   ["g/f_pov_nino.jpg","La sala desde los ojos de un niño."],["g/f_pov_adulto.jpg","La sala desde los ojos de un adulto."]]]];
-const sts=document.getElementById('stages'),lb=document.getElementById('lb');
+const sts=document.getElementById('stages'),lb=document.getElementById('lb'),GAL=[];let cur=0;
 ST.forEach(([h,p,items],i)=>{const s=document.createElement('div');s.className='stagep';
  s.innerHTML=`<header><span class="eyebrow">Etapa ${i+1} de ${ST.length}</span><h3>${h}</h3><p>${p}</p></header><div class="grid"></div>`;
  const g=s.querySelector('.grid');
  items.forEach(([src,cap])=>{const f=document.createElement('figure');f.innerHTML=`<button type="button" aria-label="Ampliar: ${cap}"><img src="${src}" alt="${cap}" loading="lazy"></button><figcaption>${cap}</figcaption>`;
-  f.querySelector('button').addEventListener('click',()=>{document.getElementById('lb-img').src=src;document.getElementById('lb-img').alt=cap;document.getElementById('lb-cap').textContent=cap;lb.showModal()});g.appendChild(f)});
+  const btn=f.querySelector('button');const k=GAL.length;GAL.push({src,cap,btn,stage:`Etapa ${i+1} · ${h}`,j:items.indexOf(items.find(x=>x[0]===src))+1,n:items.length});
+  btn.addEventListener('click',()=>{showLb(k);if(!lb.open)lb.showModal()});g.appendChild(f)});
  sts.appendChild(s)});
+function showLb(k){cur=(k+GAL.length)%GAL.length;const it=GAL[cur],im=document.getElementById('lb-img');
+  im.src=it.src;im.alt=it.cap;document.getElementById('lb-cap').textContent=it.cap;
+  document.getElementById('lb-count').textContent=`${it.stage} — ${it.j} de ${it.n}`}
 document.getElementById('lb-close').addEventListener('click',()=>lb.close());
+document.getElementById('lb-prev').addEventListener('click',()=>showLb(cur-1));
+document.getElementById('lb-next').addEventListener('click',()=>showLb(cur+1));
 lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+lb.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){showLb(cur+1);e.preventDefault()}if(e.key==='ArrowLeft'){showLb(cur-1);e.preventDefault()}});
+lb.addEventListener('close',()=>{const b=GAL[cur]&&GAL[cur].btn;if(b)setTimeout(()=>{b.focus();b.scrollIntoView({block:'nearest'})},0)});
+{let x0=null;const im=document.getElementById('lb-img');
+ im.addEventListener('pointerdown',e=>{x0=e.clientX});
+ im.addEventListener('pointerup',e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;if(Math.abs(dx)>40)showLb(cur+(dx<0?1:-1))});
+ im.addEventListener('pointercancel',()=>{x0=null})}
 /* personas */
 const P=[
  ["Bastián I. Garrido Kogan","Autor","Concepto, guion, diseño del relator y del montaje. Ingeniero civil y magíster en ingeniería sísmica."],
@@ -351,28 +401,29 @@ const P=[
  ["Rodolfo Saragoni","Ingeniero sísmico · legado","Profesor cuyo legado destaca el autor."],
  ["Violeta Parra","Música y folclorista · M1","Referencia de la voz del relato de M1 y de la preservación del folclor chileno."],
  ["Nicanor Parra","Poeta · M2","Autor de «Epopeya de Chillán», escrito tras el terremoto de 1939."],
- ["Jorge Peña Hen","Músico","Compositor y educador musical; su legado es destacado por el autor."],
- ["Frédéric Chopin","Compositor · M3","Estudio N.º 11 en mi bemol, en la interpretación del COMDASUAR (1973)."],
- ["Jean-Philippe Rameau","Compositor · M4 (guion)","«Le Rappel des Oiseaux» (1724), propuesto para la musicalización de M4."],
- ["Björk","Música · M5 (guion)","Referencia de sonido ambiente para el cierre, junto a instrumentos mapuche."],
+ ["Jorge Peña Hen","Compositor · M4","Compositor y educador musical; su <i>Cuarteto para cuerdas</i> (1958) acompaña M4."],
+ ["Frédéric Chopin","Compositor · M3","Estudio Op. 10 N.º 11 en mi bemol mayor, en la versión por computador de J. V. Asuar (<i>El computador virtuoso</i>, 1973)."],
  ["VeryGoodMaps","Cartografía · M1","Mapas de relieve de Chile usados en la secuencia del relator."]];
 const pe=document.getElementById('people');
 P.forEach(([n,r,d])=>{const e=document.createElement('div');e.className='person';e.innerHTML=`<span class="role">${r}</span><h3>${n}</h3><p>${d}</p>`;pe.appendChild(e)});
 /* referencias */
 const R=[
- ["M1","Ruiz, S., y Madariaga, R. (2018). Historical and recent large megathrust earthquakes in Chile. <i>Tectonophysics</i>, 733, 37–56."],
- ["M1","Ruiz, S., Ide, S., Potin, B., y Madariaga, R. (2025). Fast and slow subduction earthquakes in Latin America. <i>Annual Review of Earth and Planetary Sciences</i>."],
- ["M1","de Rosales, D. (1877). <i>Historia general del Reino de Chile, Flandes Indiano</i>; Lenz, R. (1912). Citados en Ruiz y Madariaga (2018)."],
- ["M2","Carvajal, M., Cisternas, M., y Catalán, P. A. (2017). Source of the 1730 Chilean earthquake from historical records: implications for the future tsunami hazard on the coast of Metropolitan Chile. <i>Journal of Geophysical Research: Solid Earth</i>, 122."],
- ["M2","Udías, A., Madariaga, R., Buforn, E., Muñoz, D., y Ros, M. (2012). The large Chilean historical earthquakes of 1647, 1657, 1730, and 1751 from contemporary documents. <i>Bulletin of the Seismological Society of America</i>, 102(4)."],
+ ["M1","Ruiz, S., y Madariaga, R. (2018). Historical and recent large megathrust earthquakes in Chile. <i>Tectonophysics</i>, 733, 37–56. <a href=\"https://doi.org/10.1016/j.tecto.2018.01.015\" target=\"_blank\" rel=\"noopener\">doi:10.1016/j.tecto.2018.01.015</a>"],
+ ["M1","Ruiz, S., Ide, S., Potin, B., y Madariaga, R. (2025). Fast and slow subduction earthquakes in Latin America. <i>Annual Review of Earth and Planetary Sciences</i>, 53, 511–538. <a href=\"https://doi.org/10.1146/annurev-earth-040522-121945\" target=\"_blank\" rel=\"noopener\">doi:10.1146/annurev-earth-040522-121945</a>"],
+ ["M1","Rosales, D. de (1877–1878). <i>Historia general del Reino de Chile, Flandes Indiano</i> (obra del siglo XVII; ed. B. Vicuña Mackenna). Citado en Ruiz y Madariaga (2018)."],
+ ["M1","Lenz, R. (1912). Tradiciones e ideas de los araucanos acerca de los terremotos. <i>Anales de la Universidad de Chile</i>. Citado en Ruiz y Madariaga (2018)."],
+ ["M2","Carvajal, M., Cisternas, M., y Catalán, P. A. (2017). Source of the 1730 Chilean earthquake from historical records: implications for the future tsunami hazard on the coast of Metropolitan Chile. <i>Journal of Geophysical Research: Solid Earth</i>, 122(5), 3648–3660. <a href=\"https://doi.org/10.1002/2017JB014063\" target=\"_blank\" rel=\"noopener\">doi:10.1002/2017JB014063</a>"],
+ ["M2","Udías, A., Madariaga, R., Buforn, E., Muñoz, D., y Ros, M. (2012). The large Chilean historical earthquakes of 1647, 1657, 1730, and 1751 from contemporary documents. <i>Bulletin of the Seismological Society of America</i>, 102(4), 1639–1653. <a href=\"https://doi.org/10.1785/0120110289\" target=\"_blank\" rel=\"noopener\">doi:10.1785/0120110289</a>"],
  ["M2","Parra, N. «Epopeya de Chillán» (poema, 1939)."],
- ["M3","Asuar, J. V. (1973). Estudio N.º 11 en mi bemol (F. Chopin), interpretado por el computador COMDASUAR."],
- ["M4","León-Ríos, S., Gutiérrez, I., Riffo, S., Pérez, M., Madariaga, R., Comte, D., y Ruiz, S. (2024). Decoding the narrative of the Chilean coup d'état through the seismograms of September 1973."],
- ["M5","Ojeda, J., y Ruiz, S. (2021). Seismic noise variability as an indicator of urban mobility during the COVID-19 pandemic in the Santiago metropolitan region, Chile. <i>Solid Earth</i>, 12."],
- ["M5","Lecocq, T., et al. (2020). Global quieting of high-frequency seismic noise due to COVID-19 pandemic lockdown measures. <i>Science</i>, 369."]];
+ ["M3","Asuar, J. V. (1973). <i>El computador virtuoso</i> [LP]. IRT. Incluye el Estudio Op. 10 N.º 11 (F. Chopin)."],
+ ["M4","León-Ríos, S., Gutiérrez, I., Riffo, S., Pérez, M., Madariaga, R., Comte, D., y Ruiz, S. (2025). Decoding the narrative of the Chilean coup d'état through the seismograms of September 1973. <i>Seismological Research Letters</i>, 96(2A), 1181–."],
+ ["M5","Ojeda, J., y Ruiz, S. (2021). Seismic noise variability as an indicator of urban mobility during the COVID-19 pandemic in the Santiago metropolitan region, Chile. <i>Solid Earth</i>, 12, 1075–1085. <a href=\"https://doi.org/10.5194/se-12-1075-2021\" target=\"_blank\" rel=\"noopener\">doi:10.5194/se-12-1075-2021</a>"],
+ ["M5","Lecocq, T., et al. (2020). Global quieting of high-frequency seismic noise due to COVID-19 pandemic lockdown measures. <i>Science</i>, 369(6509), 1338–1343. <a href=\"https://doi.org/10.1126/science.abd2438\" target=\"_blank\" rel=\"noopener\">doi:10.1126/science.abd2438</a>"]];
 const rf=document.getElementById('refs');
 R.forEach(([t,x])=>{const l=document.createElement('li');l.innerHTML=`<span class="tag">${t}</span><span>${x}</span>`;rf.appendChild(l)});
 /* inicio */
+const hdr=document.querySelector('header.top');function setHdr(){document.documentElement.style.setProperty('--hdr',(hdr.offsetHeight+12)+'px')}
+setHdr();addEventListener('resize',setHdr);if(window.ResizeObserver)new ResizeObserver(setHdr).observe(hdr);
 let v0='sala';try{const s=localStorage.getItem('esdm_view');if(s&&VIEWS[s])v0=s}catch(e){}
 load(v0,0,0,false);
 requestAnimationFrame(draw);

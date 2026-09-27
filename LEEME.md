@@ -12,7 +12,7 @@ Sitio estático, sin dependencias. Abrir `index.html` o publicar la carpeta tal 
 
 ## Estructura
 - `index.html` — página completa (estilos y código incluidos).
-- `v/` — 18 videos (sala, nino, adulto × M0–M5), 960×540, versión niños v2 (9:07).
+- `v/` — 18 videos (sala, nino, adulto × M0–M5), 960×540, maqueta audiovisual V5 · versión para niños v2 (9:07).
 - `p/` — carátulas de los videos.
 - `g/` — imágenes de la sección «Del papel a la sala».
 
