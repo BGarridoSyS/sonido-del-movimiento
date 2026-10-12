@@ -12,8 +12,14 @@ Sitio estático, sin dependencias. Abrir `index.html` o publicar la carpeta tal 
 
 ## Estructura
 - `index.html` — página completa (estilos y código incluidos).
-- `v/` — 18 videos (sala, nino, adulto × M0–M5), 960×540, maqueta audiovisual V5 · versión para niños v2 (9:07).
+- `v/` — 18 videos (sala, nino, adulto × M0–M5), 960×540, versión niños v2 (9:07).
 - `p/` — carátulas de los videos.
 - `g/` — imágenes de la sección «Del papel a la sala».
+- `kit/` — kit de impresión 3D por arcos (20 STL en mm a 1:4, 5 ZIP por arco, ZIP completo y LEEME_kit.txt); `g/kit_arco1…5.jpg` son sus vistas.
+- `laminas/` — Laminas_proyeccion_relator.pdf (13 láminas A3 de la proyección sobre el relator).
 
-Tamaño total ≈ 58 MB; ningún archivo supera 6 MB (límite web de GitHub: 25 MB por archivo, 100 archivos por carga).
+Tamaño total ≈ 110 MB; ningún archivo supera 11 MB (límite web de GitHub: 25 MB por archivo, 100 archivos por carga).
+
+## Actualizar el sitio con el kit y las láminas
+Subir `index.html` (reemplaza al anterior), las carpetas `kit` y `laminas` completas y las imágenes nuevas de `g` con **Add file → Upload files**.
+Si el repositorio tiene una carpeta `stl` de una versión anterior, eliminarla: el kit nuevo la reemplaza.
