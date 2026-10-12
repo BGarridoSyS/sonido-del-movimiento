@@ -1,0 +1,25 @@
+EL SONIDO DEL MOVIMIENTO · Kit de impresión 3D del relator, por arcos
+Autor de la obra: Bastián I. Garrido Kogan · archivos STL en milímetros, escala 1:4 (relator armado ≈ 83 cm)
+
+Grupos (de norte a sur) y contenido de cada uno
+- Arco 1 · EL          secciones 1–4   (17–21°S)  · 3 columnas · 4 tubos
+- Arco 2 · SONIDO      secciones 5–9   (21–26°S)  · 4 columnas · 5 tubos
+- Arco 3 · DEL         secciones 10–12 (26–29°S)  · 2 columnas · 3 tubos
+- Arco 4 · MOVIMIENTO  secciones 13–19 (29–36°S)  · 6 columnas · 7 tubos
+- Arco 5 · 2026        secciones 20–26 (36–43°S)  · 6 columnas · 7 tubos
+Cada grupo trae cuatro archivos: arcoN_columnas.stl (planchas de perfil cáliz, acostadas), arcoN_arco.stl (viga con la palabra
+perforada, acostada sobre su cara oriente), arcoN_tubos.stl (cilindros de pie, Ø 5 mm) y arcoN_secciones.stl (secciones con la
+cara de corte norte hacia abajo). Las piezas vienen separadas sobre la cama; pueden reordenarse en el laminador.
+
+Impresión
+- PLA, capa 0,2 mm, 3 perímetros, 4 capas superiores e inferiores, relleno 15 %. Sin soportes (arcos, columnas y secciones);
+  tubos de pie con borde (brim).
+- Para otra escala, escale todas las piezas por igual: 200 % para 1:2 y 400 % para 1:1 (tamaño de la exposición).
+- Escriba el número de cada sección en su cara inferior (norte) al retirarla.
+
+Armado
+1. Columnas: la base ancha al suelo; el espigón superior (saliente angosto) entra 5,5 mm en la ranura del fondo del arco.
+2. Arco: la palabra se lee desde el poniente. Las ranuras de las columnas quedan abajo; los agujeros de los tubos, arriba.
+3. Tubos: un extremo en el agujero del arco (7,5 mm), el otro en el agujero bajo la sección (7,5 mm).
+4. Secciones: de norte a sur (1 → 26) con las caras de corte en contacto y la fosa (canto bajo) hacia el poniente.
+Holgura de los encajes: 0,2 mm; si quedan sueltos, una gota de pegamento; si quedan apretados, lijar levemente el tubo o el espigón.
