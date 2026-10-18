@@ -9,6 +9,7 @@
 <meta property="og:description" content="Seis momentos, de Tren Tren y Caicai Vilu a la pandemia, sobre un relator impreso en 3D.">
 <meta property="og:image" content="https://bgarridosys.github.io/sonido-del-movimiento/g/f_vista_m3.jpg">
 <meta property="og:url" content="https://bgarridosys.github.io/sonido-del-movimiento/obra.html">
+<meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CL">
 <meta name="twitter:card" content="summary_large_image">
@@ -183,6 +184,14 @@ h1,h2,h3{margin:0;font-weight:700;text-wrap:balance}
 .viewnote{font-size:15px;color:var(--sfg2);margin:14px 0 0;max-width:46em}
 @media (max-width:760px){.pinfo{grid-template-columns:minmax(0,1fr)}.vstage{border-radius:12px}}
 
+.webn{margin:14px 0 0;padding:10px 14px;border-left:3px solid var(--sacc);background:color-mix(in srgb,var(--sacc) 8%,transparent);border-radius:0 10px 10px 0;font-size:15px;line-height:1.45;color:var(--sfg)}
+.inl{color:var(--sacc);text-underline-offset:3px}
+.rights{margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.rights .panel h3{font-size:21px;margin-bottom:12px}
+.rights ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.5;color:var(--sfg2)}
+.rights p{margin:0 0 10px;font-size:15px;line-height:1.5;color:var(--sfg2)}
+.rights a{color:var(--sacc);overflow-wrap:anywhere}
+video::cue{font-family:Inter,system-ui,sans-serif;font-size:.95em;background:rgba(0,0,0,.72)}
 /* carrusel */
 .rail-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px}
 .rail-ctrl{display:flex;gap:10px}
@@ -317,8 +326,8 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
     <p class="lede rv d2">Un viaje espacio-temporal por una de las zonas más sísmicas del mundo: la subducción de la placa de Nazca bajo la placa Sudamericana. Del relato de Tren Tren y Caicai Vilu a la pandemia del coronavirus.</p>
     <div class="ctas rv d3"><a class="btn" href="#recorrido">Ver el recorrido</a><a class="link" href="#construye">Construye la obra en tu colegio</a></div>
   </div>
-  <div class="hero-media"><img src="g/relieve_chile.webp" width="1400" height="383" alt="Relieve de Chile continental entre los 17°S y los 43°S, la forma del relator." fetchpriority="high"></div>
-  <div class="wrap"><div class="hero-meta"><span>Autor <b>Bastián I. Garrido Kogan</b></span><span>Maqueta audiovisual <b>V5 · versión para niños v2</b></span><span>Duración <b>9 min 07 s</b></span></div></div>
+  <div class="hero-media"><img src="g/relator_render.webp" width="1600" height="539" alt="Render del relator: Chile continental de 17°S a 43°S en 26 secciones, desde el modelo 3D del autor." fetchpriority="high"></div>
+  <div class="wrap"><div class="hero-meta"><span>Autor <b>Bastián I. Garrido Kogan</b></span><span>Maqueta audiovisual <b>V5 · versión para niños v2 · edición web</b></span><span>Duración <b>9 min 07 s</b></span></div></div>
 </section>
 
 <!-- 2 · La obra -->
@@ -385,7 +394,7 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
   <div class="wrap">
     <p class="eyebrow rv">Recorrido</p>
     <h2 class="h2 rv d1" id="h-rec">Míralo desde tres lugares.</h2>
-    <p class="lede rv d2">La maqueta audiovisual simula la sala, las proyecciones y el sonido original de cada momento. Elija un punto de vista.</p>
+    <p class="lede rv d2">La maqueta audiovisual simula la sala y las proyecciones de cada momento. Elija un punto de vista. En esta edición web se omiten las obras musicales y literarias de terceros; <a class="inl" href="#derechos">ver derechos y créditos</a>.</p>
     <div class="player">
       <div class="seg" role="group" aria-label="Punto de vista" id="views">
         <button type="button" data-v="sala" aria-pressed="true">Vista general</button>
@@ -393,7 +402,7 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
         <button type="button" data-v="adulto" aria-pressed="false">POV adulto</button>
       </div>
       <p class="viewnote" id="viewnote"></p>
-      <div class="vstage"><video id="vid" controls playsinline preload="metadata" poster="p/sala_M0.jpg" src="v/sala_M0.mp4"></video></div>
+      <div class="vstage"><video id="vid" controls playsinline preload="metadata" poster="p/sala_M0.jpg" src="vw/sala_M0.mp4"></video></div>
       <canvas class="seis" id="seis" tabindex="0" role="slider" aria-label="Línea de tiempo de la exposición" aria-describedby="seis-help" aria-valuemin="0" aria-valuemax="547" aria-valuenow="0" aria-valuetext="00:00, M0 La creación"></canvas>
       <span id="seis-help" hidden>Flechas: 10 segundos. Re Pág y Av Pág: momento anterior o siguiente. Inicio y Fin: principio o final.</span>
       <div class="ptools"><span class="mut" style="font-size:14px">Sismograma de la exposición · envolvente del sonido, 0,5 s por muestra</span><span class="clock" id="clock">00:00 / 09:07</span></div>
@@ -491,6 +500,33 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
     <p class="eyebrow rv">Autor, protagonistas y referentes</p>
     <h2 class="h2 rv d1" id="h-cre">Artistas y científicos.</h2>
     <div class="people" id="people"></div>
+    <div class="rights" id="derechos">
+      <div class="panel">
+        <h3>Edición web</h3>
+        <p>Los videos de esta página omiten obras de terceros protegidas. El audio completo se reserva a la exhibición en sala, con las licencias que correspondan.</p>
+        <ul>
+          <li>M1: voz sintética del relato (reemplazada por subtítulos).</li>
+          <li>M2: lectura de «Epopeya de Chillán», de Nicanor Parra (1939).</li>
+          <li>M3: Estudio Op. 10 N.º 11 de Chopin en la grabación de José Vicente Asuar (<i>El computador virtuoso</i>, IRT, 1973).</li>
+          <li>M4: <i>Cuarteto para cuerdas</i> (1958), de Jorge Peña Hen, por el Cuarteto de Santiago.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Uso de inteligencia artificial</h3>
+        <ul>
+          <li>Maqueta audiovisual, animaciones y composición elaboradas con asistencia de Claude (Anthropic), a partir del guion, los bocetos y los audios del autor.</li>
+          <li>Las caricaturas de Raúl Madariaga y José Vicente Asuar son recreaciones ficticias: el encuentro de M3 no ocurrió.</li>
+          <li>Las imágenes de la etapa «Primeras visualizaciones» fueron generadas con Google Gemini y no son fotografías.</li>
+          <li>La voz del relato de M1 en sala es sintética; no se publica en esta edición.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Derechos y retiro</h3>
+        <p>Los textos, fotografías, modelos y animaciones propios son de Bastián I. Garrido Kogan. Las obras, datos y figuras de terceros pertenecen a sus titulares y se citan con su fuente.</p>
+        <p>La imagen principal es un render del modelo 3D del relator. Algunas proyecciones de relieve de la maqueta se basan en mapas de VeryGoodMaps.</p>
+        <p>Si usted es titular de derechos y objeta algún uso, escriba en <a href="https://github.com/BGarridoSyS/sonido-del-movimiento/issues" target="_blank" rel="noopener">github.com/BGarridoSyS/sonido-del-movimiento/issues</a>; la solicitud se revisará y, de corresponder, el material se retirará con prontitud.</p>
+      </div>
+    </div>
     <details class="refs" id="referencias">
       <summary>Referencias · respaldo científico e histórico</summary>
       <ol class="rl" id="refs"></ol>
@@ -510,8 +546,8 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
 
 <footer>
   <div class="wrap">
-    <div class="fl"><a href="index.html">Versión clásica del sitio</a><a href="#referencias">Referencias</a><a href="#top">Volver arriba</a></div>
-    <p>Los videos de esta página son la maqueta audiovisual V5 en su versión para niños v2 (9 min 07 s): simulan la sala, las proyecciones y el sonido original de cada momento, para revisar la obra antes del montaje. Las figuras humanas son referencias de escala.</p>
+    <div class="fl"><a href="index.html">Versión clásica del sitio</a><a href="#derechos">Derechos y uso de IA</a><a href="#referencias">Referencias</a><a href="#top">Volver arriba</a></div>
+    <p>Los videos de esta página son la maqueta audiovisual V5 en su versión para niños v2 (9 min 07 s), en edición web: simulan la sala y las proyecciones de cada momento para revisar la obra antes del montaje, y omiten las obras de terceros indicadas en <a href="#derechos">Derechos</a>. Las figuras humanas son referencias de escala.</p>
     <p>Maqueta, animaciones y composición desarrolladas con asistencia de Claude (Anthropic) a partir del guion, los bocetos y los audios del autor.</p>
   </div>
 </footer>
@@ -532,19 +568,19 @@ const M=[
  {k:"M1",t:"Chile ancestral",period:"Antes de 1500",img:"g/f_mom_m1.jpg",
   sub:"La sismología como creencia.",
   txt:"El relato mapuche de Tren Tren Vilu y Caicai Vilu: Caicai, la serpiente del océano, levanta grandes tsunamis; Tren Tren protege al pueblo elevando los cerros. La segunda parte recuerda que la conquista no preservó los relatos de los pueblos originarios y que la historia sísmica escrita comienza hace unos cinco siglos.",
-  kv:[["Relator","Relieve de Chile; el mar y las serpientes avanzan de norte a sur, los cerros se elevan; luego manos que cubren el territorio."],["Paneles","Caricatura del relato y transcripción."],["Música","Voz generada con inteligencia artificial (referencia: Violeta Parra)."],["Ciencia","Ruiz y Madariaga (2018); Ruiz et al. (2025)."]]},
+  kv:[["Relator","Relieve de Chile; el mar y las serpientes avanzan de norte a sur, los cerros se elevan; luego manos que cubren el territorio."],["Paneles","Caricatura del relato y transcripción."],["Voz","Relato con voz sintética generada con inteligencia artificial. <b>Solo en sala</b>; en la edición web, subtítulos."],["Ciencia","Ruiz y Madariaga (2018); Ruiz et al. (2025)."]]},
  {k:"M2",t:"De la Colonia a la República",period:"1500–1970",img:"g/f_mom_m2.jpg",
   sub:"Los primeros registros sísmicos.",
   txt:"El poema «Epopeya de Chillán», de Nicanor Parra, acompaña cuatro terremotos que transformaron las ciudades: Santiago 1647, Valparaíso 1730, Valparaíso 1906 y Chillán 1939. Sobre el relator, cada evento late como un corazón y sus ondas se propagan desde el epicentro.",
-  kv:[["Relator","Mapas de calor con isocurvas: circulares en 1647 y 1939, elípticas norte–sur en 1730 y 1906."],["Paneles","Un corazón rodeado de flores que toma color; fichas de cada terremoto."],["Música","Lectura del poema con autotune, técnica creada por Andy Hildebrand, un ingeniero que procesaba señales sísmicas para la exploración petrolera."],["Ciencia","Carvajal et al. (2017); Udías et al. (2012)."]]},
+  kv:[["Relator","Mapas de calor con isocurvas: circulares en 1647 y 1939, elípticas norte–sur en 1730 y 1906."],["Paneles","Un corazón rodeado de flores que toma color; fichas de cada terremoto."],["Música","Lectura de «Epopeya de Chillán» (Nicanor Parra, 1939) con autotune, técnica creada por Andy Hildebrand, un ingeniero que procesaba señales sísmicas para la exploración petrolera. <b>Solo en sala.</b>"],["Ciencia","Carvajal et al. (2017); Udías et al. (2012)."]]},
  {k:"M3",t:"Punto de inflexión",period:"Década de 1970",img:"g/f_mom_m3.jpg",
   sub:"Inicio de la sismología moderna.",
   txt:"Un joven Raúl Madariaga vuelve a Chile tras doctorarse en el MIT, en plena efervescencia de la tectónica de placas, y conoce a José Vicente Asuar, que explora el computador en la música. En un encuentro imaginado, Raúl le propone usar su computador digital-analógico para escuchar un ciclo sísmico.",
-  kv:[["Relator","Las secciones se encienden una a una como el computador de Asuar; luego Chile en azul, con gotas donde caen los sismos."],["Paneles","Caricatura animada de Raúl y José Vicente; partículas que caen como sismos en una ventana latitud–tiempo."],["Música","Estudio Op. 10 N.º 11 en mi bemol mayor (Chopin), programado por José Vicente Asuar en computador y sintetizador (<i>El computador virtuoso</i>, 1973)."]]},
+  kv:[["Relator","Las secciones se encienden una a una como el computador de Asuar; luego Chile en azul, con gotas donde caen los sismos."],["Paneles","Caricatura animada de Raúl y José Vicente (recreación ficticia, ilustración elaborada con asistencia de IA); partículas que caen como sismos en una ventana latitud–tiempo."],["Música","Estudio Op. 10 N.º 11 en mi bemol mayor (Chopin), programado por José Vicente Asuar en computador y sintetizador (<i>El computador virtuoso</i>, IRT, 1973). <b>Solo en sala.</b>"]]},
  {k:"M4",t:"Memorias I",period:"11 de septiembre de 1973",img:"g/f_mom_m4.jpg",
   sub:"El golpe de Estado en los sismogramas.",
   txt:"El imaginario del momento anterior retrocede: el encuentro no ocurrió. Raúl vuelve al MIT y luego se radica en Francia, donde trabaja por más de cuarenta años y llega a ser profesor emérito de la École Normale Supérieure y uno de los sismólogos más reconocidos del mundo. En la caricatura envejece hasta hoy.",
-  kv:[["Relator","Registros sísmicos del 11 de septiembre de 1973 en escala de grises; una mancha roja se expande desde Santiago al resto de Chile."],["Paneles","Reversa acelerada del imaginario y envejecimiento de Raúl."],["Música","<i>Cuarteto para cuerdas</i> (1958), de Jorge Peña Hen, interpretado por el Cuarteto de Santiago."],["Ciencia","León-Ríos et al. (2025)."]]},
+  kv:[["Relator","Registros sísmicos del 11 de septiembre de 1973 en escala de grises; una mancha roja se expande desde Santiago al resto de Chile."],["Paneles","Reversa acelerada del imaginario y envejecimiento de Raúl (caricatura elaborada con asistencia de IA)."],["Música","<i>Cuarteto para cuerdas</i> (1958), de Jorge Peña Hen, interpretado por el Cuarteto de Santiago. <b>Solo en sala.</b> Se conserva la narración."],["Ciencia","León-Ríos et al. (2025)."]]},
  {k:"M5",t:"Memorias II",period:"2020",img:"g/f_mom_m5.jpg",
   sub:"Pandemia de COVID-19.",
   txt:"A comienzos de 2020, una mujer camina con su teléfono por una ciudad acelerada. Llegan el coronavirus y la cuarentena: cierran los negocios, se vacían las calles y el ruido humano cae. Al terminar el relato cruza a un bosque nativo, donde un puma cachorro avanza junto a un río.",
@@ -560,15 +596,14 @@ const ST=[
  ["Idea y guion","2025. El concepto toma forma en papel: una exposición sobre el aporte cultural de la sismología a través de la música.",[
   ["g/p01_bosquejo.jpg","Bosquejo de la exposición: «Una exposición sobre el aporte cultural de la sismología a través de la música»."],
   ["g/p02_storybook.jpg","Storybook: el recorrido narrado como un cuento, sala por sala."]]],
- ["Primeras visualizaciones","Imágenes conceptuales de la sala para probar escala, paneles y atmósfera de cada momento.",[
-  ["g/p04_sala_m1.jpg","Chile ancestral: Tren Tren y Caicai Vilu en los paneles."],
-  ["g/p03_render_relator.jpg","Punto de inflexión: Madariaga y Asuar en los paneles."],
-  ["g/p06_sala_m4.jpg","Memorias I: imágenes y sismogramas de septiembre de 1973."],
-  ["g/p07_sala_m5.jpg","Memorias II: registros espectrales de la cuarentena."]]],
+ ["Primeras visualizaciones","Imágenes conceptuales de la sala para probar escala, paneles y atmósfera de cada momento. Generadas con inteligencia artificial (Google Gemini); no son fotografías.",[
+  ["g/p04_sala_m1.jpg","Chile ancestral: Tren Tren y Caicai Vilu en los paneles. Imagen generada con IA (Google Gemini)."],
+  ["g/p03_render_relator.jpg","Punto de inflexión: Madariaga y Asuar en los paneles. Imagen generada con IA (Google Gemini); recreación ficticia."],
+  ["g/p07_sala_m5.jpg","Memorias II: registros espectrales de la cuarentena. Imagen generada con IA (Google Gemini)."]]],
  ["De la ciencia a la forma","La geometría de la subducción y el relieve de Chile definen la forma del relator.",[
   ["g/p08_subduccion.jpg","Profundidad del contacto entre las placas de Nazca y Sudamericana."],
   ["g/p09_contorno.jpg","Contorno de Chile (17°S–43°S) sobre la superficie de subducción."],
-  ["g/p10_relieve.jpg","Relieve de Chile usado como base de las proyecciones (VeryGoodMaps)."]]],
+  ["g/relator_render.jpg","El relator: render del modelo 3D del autor, 26 secciones de 17°S a 43°S sobre la superficie de subducción."]]],
  ["Fabricación","De la primera impresión 3D, a comienzos de 2025, a las secciones a escala de septiembre de 2025 y, luego, al relator impreso en tamaño real.",[
   ["g/p10c_impresion_amarilla.jpg","Comienzos de 2025: primera impresión 3D, en amarillo: la superficie de subducción Slab2 (Hayes et al., 2018) en plano, con longitud y latitud como ejes X e Y y sin la curvatura de la Tierra."],
   ["g/p11_impresion.jpg","Septiembre de 2025: secciones del relator recién impresas."],
@@ -584,7 +619,7 @@ const ST=[
  ["Montaje digital","Un modelo de la sala en Blender permite decidir alturas, paneles, proyectores y recorridos del público.",[
   ["g/p14_montaje_v5.jpg","Montaje V5: relator a 80 cm, cuatro paneles, proyectores de tiro corto y figuras de referencia."],
   ["g/p15_trayectorias.jpg","Trayectorias de 15 personas armando el relator en M0 (planta)."]]],
- ["Animación","Los paneles cuentan cada momento con caricatura, ilustración y texto. Cuadros de la maqueta audiovisual V5.",[
+ ["Animación","Los paneles cuentan cada momento con caricatura, ilustración y texto, elaborados con asistencia de inteligencia artificial. Cuadros de la maqueta audiovisual V5.",[
   ["g/p16_anim_m2_v5.jpg","M2: el corazón rodeado de flores que recupera el color."],
   ["g/p17_anim_m3_v5.jpg","M3: Raúl y José Vicente con una sección del relator."],
   ["g/p18_anim_m4_v5.jpg","M4: Raúl envejece hasta el presente."],
@@ -600,7 +635,7 @@ const P=[
  ["José Vicente Asuar","Compositor · protagonista M3","Pionero de la música electroacústica y por computador en Chile; creador del COMDASUAR."],
  ["Sergio Ruiz","Sismólogo · inspiración","Profesor del Departamento de Geofísica de la Universidad de Chile; su trabajo inspira la exposición y respalda varios momentos."],
  ["Rodolfo Saragoni","Ingeniero sísmico · formador del autor","Profesor emérito de la Universidad de Chile, con 50 años de trayectoria profesional y académica y gran influencia en las normas de ingeniería sísmica. Formador del autor en el ámbito profesional del peligro sísmico."],
- ["Violeta Parra","Música y folclorista · M1","Referencia de la voz del relato de M1 y de la preservación del folclor chileno."],
+ ["Violeta Parra","Música y folclorista · referente","Referente de la preservación del folclor chileno; su legado se destaca en la presentación del autor."],
  ["Nicanor Parra","Poeta · M2","Autor de «Epopeya de Chillán», escrito tras el terremoto de 1939."],
  ["Jorge Peña Hen","Compositor · M4","Compositor y educador musical; su <i>Cuarteto para cuerdas</i> (1958) acompaña M4."],
  ["Frédéric Chopin","Compositor · M3","Estudio Op. 10 N.º 11 en mi bemol mayor, en la versión por computador de J. V. Asuar (<i>El computador virtuoso</i>, 1973)."],
@@ -645,6 +680,8 @@ if(!CSS.supports('animation-timeline: view()')&&!RM.matches){
   addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});upd();
 }
 
+/* notas de la edición web (revisión de derechos) */
+const WEBN={1:"Edición web: se omite la voz sintética del relato; el texto se muestra en subtítulos.",2:"Edición web: se omite la lectura de «Epopeya de Chillán» (Nicanor Parra, 1939), obra protegida. Este momento se presenta sin audio.",3:"Edición web: desde 01:23 se omite la grabación del Estudio Op. 10 N.º 11 de Chopin en la versión de José Vicente Asuar (<i>El computador virtuoso</i>, IRT, 1973).",4:"Edición web: se omite el <i>Cuarteto para cuerdas</i> de Jorge Peña Hen; se conserva la narración."};
 /* momentos */
 const fmtT=s=>{s=Math.max(0,Math.round(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')};
 const frame=$('#mframe'),steps=$('#msteps'),mtag=$('#mtag');
@@ -653,7 +690,7 @@ M.forEach((m,i)=>{
   const a=document.createElement('article');a.className='step'+(i?'':' active');a.id='m-'+m.k;a.dataset.i=i;
   a.innerHTML=`<img class="m-img" src="${m.img}" alt="Cuadro de la maqueta en ${m.k}, ${m.t}" loading="lazy">
    <span class="k">${m.k} · ${fmtT(B[i])}–${fmtT(B[i+1])}</span><h3 class="h3">${m.t}</h3><p class="per">${m.period}</p>
-   <p class="sub">${m.sub}</p><p class="t">${m.txt}</p>
+   <p class="sub">${m.sub}</p><p class="t">${m.txt}</p>${WEBN[i]?`<p class="webn">${WEBN[i]}</p>`:""}
    <dl>${m.kv.map(([x,y])=>`<dt>${x}</dt><dd>${y}</dd>`).join('')}</dl>
    <a class="link" href="#recorrido" data-go="${i}">Ver ${m.k} en el recorrido</a>`;
   steps.appendChild(a)});
@@ -669,7 +706,9 @@ const vid=$('#vid'),cv=$('#seis');let view='sala',mi=0,pendingSeek=null,wantPlay
 function globalT(){return B[mi]+(vid.currentTime||0)}
 function momentAt(t){let m=0;while(m<5&&t>=B[m+1])m++;return m}
 function load(v,m,local,play){view=v;mi=m;pendingSeek=local||0;wantPlay=play;
-  vid.poster=`p/${v}_M${m}.jpg`;vid.src=`v/${v}_M${m}.mp4`;vid.load();
+  vid.poster=`p/${v}_M${m}.jpg`;vid.querySelectorAll("track").forEach(x=>x.remove());vid.src=`vw/${v}_M${m}.mp4`;
+  if(m===1){const tr=document.createElement("track");tr.kind="subtitles";tr.srclang="es";tr.label="Español (relato)";tr.src="vw/M1_es.vtt";tr.default=true;vid.appendChild(tr);tr.addEventListener("load",()=>{try{vid.textTracks[0].mode="showing"}catch(e){}})}
+  vid.load();
   document.querySelectorAll('#views button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===v));
   document.querySelectorAll('#chips button').forEach((b,i)=>b.setAttribute('aria-current',i===m));
   $('#viewnote').textContent=VIEWS[v];renderInfo();draw();setAria(B[m]+(local||0));
@@ -683,7 +722,7 @@ function seekGlobal(t){t=Math.max(0,Math.min(TOTAL-.3,t));const m=momentAt(t);se
 document.querySelectorAll('#views button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.v!==view)load(b.dataset.v,mi,vid.currentTime,!vid.paused)}));
 const chips=$('#chips');
 M.forEach((m,i)=>{const b=document.createElement('button');b.type='button';b.className='chip';b.innerHTML=`<b>${m.k}</b>${m.t}`;b.setAttribute('aria-current',i===0);b.addEventListener('click',()=>load(view,i,0,!vid.paused));chips.appendChild(b)});
-function renderInfo(){const m=M[mi];$('#pinfo').innerHTML=`<div><span class="eyebrow">${m.k} · ${fmtT(B[mi])}–${fmtT(B[mi+1])}</span><h3>${m.t}</h3><div class="per">${m.period}</div><p class="sub">${m.sub}</p><a class="link" href="#m-${m.k}">Leer el relato completo</a></div><dl>${m.kv.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl>`}
+function renderInfo(){const m=M[mi];$('#pinfo').innerHTML=`<div><span class="eyebrow">${m.k} · ${fmtT(B[mi])}–${fmtT(B[mi+1])}</span><h3>${m.t}</h3><div class="per">${m.period}</div><p class="sub">${m.sub}</p>${WEBN[mi]?`<p class="webn">${WEBN[mi]}</p>`:""}<a class="link" href="#m-${m.k}">Leer el relato completo</a></div><dl>${m.kv.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl>`}
 const cssv=n=>getComputedStyle(cv).getPropertyValue(n).trim();
 function draw(){const r=cv.getBoundingClientRect(),dpr=devicePixelRatio||1,W=Math.max(10,r.width),H=r.height||64;
   if(cv.width!==Math.round(W*dpr)||cv.height!==Math.round(H*dpr)){cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr)}
