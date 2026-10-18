@@ -192,6 +192,26 @@ h1,h2,h3{margin:0;font-weight:700;text-wrap:balance}
 .rights p{margin:0 0 10px;font-size:15px;line-height:1.5;color:var(--sfg2)}
 .rights a{color:var(--sacc);overflow-wrap:anywhere}
 video::cue{font-family:Inter,system-ui,sans-serif;font-size:.95em;background:rgba(0,0,0,.72)}
+
+/* ficha técnica */
+.ft-intro{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:40px;border-top:1px solid var(--srule)}
+.ft-intro div{padding:16px 16px 16px 0;border-bottom:1px solid var(--srule)}
+.ft-intro span{display:block;font-size:14px;color:var(--sfg2)}
+.ft-intro b{display:block;font-size:clamp(20px,2.2vw,26px);font-weight:700;letter-spacing:-.02em;margin-top:4px;font-variant-numeric:tabular-nums}
+@media (max-width:760px){.ft-intro{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ft-tabs{margin-top:44px}
+.ft-wrap{overflow-x:auto;margin-top:20px;border-top:1px solid var(--sfg)}
+.ft{width:100%;min-width:680px;border-collapse:collapse;font-size:15px;line-height:1.45}
+.ft th{text-align:left;font-size:13px;font-weight:600;color:var(--sfg2);padding:12px 12px 12px 0;border-bottom:1px solid var(--srule)}
+.ft td{vertical-align:top;padding:14px 12px 14px 0;border-bottom:1px solid var(--srule);color:var(--sfg2)}
+.ft td:first-child{color:var(--sfg);font-weight:600;width:22%}
+.ft td.n{font-variant-numeric:tabular-nums;color:var(--sfg);white-space:nowrap;width:7%}
+.ft .src{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:1px;background:color-mix(in srgb,var(--sacc) 14%,transparent);color:var(--sacc)}
+.ft .src.rec{background:var(--scard);color:var(--sfg2)}
+.ft-pane[hidden]{display:none!important}
+.ft-notes{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.ft-notes .panel p{margin:0;font-size:15px;line-height:1.5;color:var(--sfg2)}
+.ft-notes .panel h3{font-size:19px;margin-bottom:8px}
 /* carrusel */
 .rail-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px}
 .rail-ctrl{display:flex;gap:10px}
@@ -310,6 +330,7 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
       <li><a href="#recorrido">Recorrido</a></li>
       <li><a href="#proceso">Proceso</a></li>
       <li><a href="#construye">Construye</a></li>
+      <li><a href="#ficha">Ficha técnica</a></li>
       <li><a href="#creditos">Créditos</a></li>
     </ul></nav>
     <a class="btn" href="#recorrido">Ver</a>
@@ -494,6 +515,30 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
   </div>
 </section>
 
+
+<!-- Ficha técnica de montaje -->
+<section class="s-alt pad" id="ficha" aria-labelledby="h-ficha">
+  <div class="wrap">
+    <p class="eyebrow rv">Ficha técnica de montaje</p>
+    <h2 class="h2 rv d1" id="h-ficha">Lo que necesita la sala.</h2>
+    <p class="lede rv d2">Cinco proyectores, un computador, cuatro parlantes y luz controlada. Las medidas provienen del modelo de montaje V5; las especificaciones de equipos son recomendaciones para cotizar y validar en el recinto.</p>
+    <div class="ft-intro">
+      <div><span>Sala de referencia</span><b>8,3 × 6,0 × 4,0 m</b></div>
+      <div><span>Proyectores</span><b>1 cenital + 4 de panel</b></div>
+      <div><span>Audio</span><b>4 parlantes + sub</b></div>
+      <div><span>Energía estimada</span><b>≈ 3 kW · 220 V</b></div>
+    </div>
+    <div class="ft-tabs">
+      <div class="seg" role="tablist" aria-label="Categorías de la ficha técnica" id="fttabs"><button type="button" role="tab" id="ftt-proy" data-ft="proy" aria-selected="true" aria-controls="ftp-proy">Proyección</button><button type="button" role="tab" id="ftt-repro" data-ft="repro" aria-selected="false" aria-controls="ftp-repro">Reproducción</button><button type="button" role="tab" id="ftt-audio" data-ft="audio" aria-selected="false" aria-controls="ftp-audio">Audio</button><button type="button" role="tab" id="ftt-luz" data-ft="luz" aria-selected="false" aria-controls="ftp-luz">Iluminación</button><button type="button" role="tab" id="ftt-cables" data-ft="cables" aria-selected="false" aria-controls="ftp-cables">Cables y energía</button><button type="button" role="tab" id="ftt-obra" data-ft="obra" aria-selected="false" aria-controls="ftp-obra">Obra y mobiliario</button></div>
+      <div class="ft-pane" role="tabpanel" id="ftp-proy" aria-labelledby="ftt-proy"><div class="ft-wrap"><table class="ft"><thead><tr><th>Elemento</th><th>Cant.</th><th>Especificación</th><th>Ubicación y uso</th></tr></thead><tbody><tr><td>Proyector cenital del relator<span class="src">modelo V5</span></td><td class="n">1</td><td>Láser, resolución nativa 1920 × 1080 (ideal WUXGA 1920 × 1200), ≥ 4 000 lm ANSI, relación de tiro ≈ 0,83 (zoom 0,75–0,90 o lente intercambiable), apto para instalación vertical a 90° y con desplazamiento de lente.</td><td>Colgado del cielo sobre el centro del relator, lente a 3,70 m; distancia al tope 2,90 m; imagen ≈ 3,49 × 1,96 m sobre la cara superior. Proyecta el mapping de M0–M5.</td></tr><tr><td>Proyectores de panel, tiro corto<span class="src">modelo V5</span></td><td class="n">4</td><td>Láser, 1920 × 1080, ≥ 3 000 lm ANSI, relación de tiro 0,50, formato 16:9.</td><td>Colgados del cielo, lente a 3,75 m. Caricatura E y O: a 1,50 m del muro. Transcripción N y S: a 1,00 m del muro.</td></tr><tr><td>Pantallas de caricatura<span class="src">modelo V5</span></td><td class="n">2</td><td>Superficie blanca mate, ganancia ≈ 1,0, 16:9, 3,00 × 1,69 m (marco o tela tensada; alternativa: muro con pintura de proyección).</td><td>Muros oriente y poniente, borde inferior a 2,10 m.</td></tr><tr><td>Pantallas de transcripción<span class="src">modelo V5</span></td><td class="n">2</td><td>Igual a las anteriores, 2,00 × 1,13 m.</td><td>Muros norte y sur, borde inferior a 2,10 m.</td></tr><tr><td>Soportes de cielo<span class="src rec">recomendado</span></td><td class="n">5</td><td>Soporte universal regulable para proyector, con cable de seguridad; el cenital, con placa para montaje vertical o estructura (truss) sobre el relator.</td><td>Uno por proyector.</td></tr></tbody></table></div></div><div class="ft-pane" role="tabpanel" id="ftp-repro" aria-labelledby="ftt-repro" hidden><div class="ft-wrap"><table class="ft"><thead><tr><th>Elemento</th><th>Cant.</th><th>Especificación</th><th>Ubicación y uso</th></tr></thead><tbody><tr><td>Computador de reproducción<span class="src rec">recomendado</span></td><td class="n">1</td><td>GPU dedicada con ≥ 3 salidas de video independientes 1080p60, 16 GB RAM, SSD ≥ 500 GB, sistema con arranque automático. Programa de reproducción con línea de tiempo y cues, video y audio sincronizados (p. ej. QLab, Millumin, Resolume o TouchDesigner).</td><td>Mesa de control fuera de la zona de público. Salidas: 1 cenital, 2 caricatura, 3 transcripción.</td></tr><tr><td>Divisores de video HDMI 1 × 2<span class="src rec">recomendado</span></td><td class="n">2</td><td>1080p60 (o 4K), compatibles con HDCP.</td><td>Duplican la caricatura (E y O) y la transcripción (N y S). Alternativa: GPU con 5 salidas.</td></tr><tr><td>Computador de respaldo<span class="src rec">recomendado</span></td><td class="n">1</td><td>Notebook con el mismo programa y contenido cargado.</td><td>Reemplazo en caso de falla.</td></tr><tr><td>Control del M0<span class="src rec">recomendado</span></td><td class="n">1</td><td>Teclado inalámbrico, controlador MIDI o botonera.</td><td>El operador hace aparecer el título sección por sección y ajusta la duración del sonido de la impresora al ritmo del armado.</td></tr></tbody></table></div></div><div class="ft-pane" role="tabpanel" id="ftp-audio" aria-labelledby="ftt-audio" hidden><div class="ft-wrap"><table class="ft"><thead><tr><th>Elemento</th><th>Cant.</th><th>Especificación</th><th>Ubicación y uso</th></tr></thead><tbody><tr><td>Interfaz de audio USB («caja de sonido»)<span class="src rec">recomendado</span></td><td class="n">1</td><td>≥ 4 salidas balanceadas (TRS), 48 kHz, control de volumen por salida.</td><td>Junto al computador de reproducción.</td></tr><tr><td>Parlantes activos<span class="src rec">recomendado</span></td><td class="n">4</td><td>Monitor activo de 6,5–8", ≥ 50 W RMS, respuesta ≈ 50 Hz–20 kHz.</td><td>En las cuatro esquinas, a ≈ 2,2 m de altura, orientados al centro del relator. Los pares N y S reproducen la misma mezcla estéreo, para que el nivel sea parejo en las secciones 1, 13 y 26 por ambos costados.</td></tr><tr><td>Subwoofer activo (opcional)<span class="src rec">recomendado</span></td><td class="n">1</td><td>8–10", con filtro de cruce.</td><td>Bajo el relator o junto a un muro extremo. Refuerza los graves de la impresora (M0) y de la música.</td></tr><tr><td>Nivel de escucha<span class="src rec">recomendado</span></td><td class="n">—</td><td>75–85 dB(A) en la zona de público.</td><td>Verificar con sonómetro en las secciones 1, 13 y 26, por ambos costados.</td></tr></tbody></table></div></div><div class="ft-pane" role="tabpanel" id="ftp-luz" aria-labelledby="ftt-luz" hidden><div class="ft-wrap"><table class="ft"><thead><tr><th>Elemento</th><th>Cant.</th><th>Especificación</th><th>Ubicación y uso</th></tr></thead><tbody><tr><td>Oscurecimiento de la sala<span class="src rec">recomendado</span></td><td class="n">—</td><td>Ventanas y puertas cubiertas (blackout); luz ambiente ≤ 5 lux durante las proyecciones.</td><td>Toda la sala.</td></tr><tr><td>Focos LED regulables (spot)<span class="src rec">recomendado</span></td><td class="n">2</td><td>20–30 W, 2 700–3 000 K, regulables por DMX (interfaz USB-DMX desde el computador) o con dimmer manual.</td><td>Sobre las repisas NE y SE y el relator, solo durante el M0; se apagan al comenzar el M1.</td></tr><tr><td>Luz de circulación<span class="src rec">recomendado</span></td><td class="n">1 set</td><td>Tira LED regulable a nivel de zócalo o balizas de piso, ≤ 10 lux.</td><td>Bordes de la sala y recorrido de entrada y salida.</td></tr><tr><td>Iluminación de emergencia y señalética<span class="src rec">recomendado</span></td><td class="n">Según norma</td><td>Según normativa vigente del recinto.</td><td>Salidas y vías de evacuación.</td></tr><tr><td>Luz de trabajo<span class="src rec">recomendado</span></td><td class="n">1 set</td><td>Focos LED portátiles.</td><td>Montaje y desmontaje.</td></tr></tbody></table></div></div><div class="ft-pane" role="tabpanel" id="ftp-cables" aria-labelledby="ftt-cables" hidden><div class="ft-wrap"><table class="ft"><thead><tr><th>Elemento</th><th>Cant.</th><th>Especificación</th><th>Ubicación y uso</th></tr></thead><tbody><tr><td>Video HDMI<span class="src rec">recomendado</span></td><td class="n">≈ 7 tramos</td><td>HDMI 2.0; tramos de más de 10 m con cable óptico activo (AOC) o extensores HDBaseT.</td><td>Computador → divisores → 5 proyectores, tendido por el cielo (sala 8,3 × 6,0 m, proyectores a 3,75 m).</td></tr><tr><td>Audio balanceado<span class="src rec">recomendado</span></td><td class="n">5</td><td>TRS–XLR, 10–15 m.</td><td>Interfaz → 4 parlantes y subwoofer, por muros o cielo.</td></tr><tr><td>USB<span class="src rec">recomendado</span></td><td class="n">2</td><td>≤ 3 m.</td><td>Interfaz de audio e interfaz USB-DMX.</td></tr><tr><td>Red (opcional)<span class="src rec">recomendado</span></td><td class="n">1</td><td>Cat6.</td><td>Control remoto del computador o sincronía con el respaldo.</td></tr><tr><td>Energía<span class="src rec">recomendado</span></td><td class="n">2 circuitos</td><td>16 A / 220 V; consumo estimado ≈ 3 kW (5 proyectores ≈ 1,8 kW, audio ≈ 0,6 kW, computador ≈ 0,4 kW, luces ≈ 0,1 kW); zapatillas con protección y UPS ≥ 1 kVA para computador e interfaz.</td><td>Tablero del recinto.</td></tr><tr><td>Fijación y protección<span class="src rec">recomendado</span></td><td class="n">—</td><td>Canaletas y cubrecables, bridas, cinta gaffer, cables de seguridad.</td><td>Sin cables sueltos en la zona de circulación alrededor del relator.</td></tr></tbody></table></div></div><div class="ft-pane" role="tabpanel" id="ftp-obra" aria-labelledby="ftt-obra" hidden><div class="ft-wrap"><table class="ft"><thead><tr><th>Elemento</th><th>Cant.</th><th>Especificación</th><th>Ubicación y uso</th></tr></thead><tbody><tr><td>Relator<span class="src">modelo V5</span></td><td class="n">26 secciones</td><td>Impresión 3D de Chile de 17°S a 43°S sobre la subducción; largo ≈ 3,29 m; tope a 0,80 m (OGUC 4.1.7 N° 5, apto para niños y usuarios de silla de ruedas).</td><td>Centro de la sala, eje N–S; en V5b, girado 6,86° para que los cortes queden paralelos a los muros N y S.</td></tr><tr><td>Soporte del relator<span class="src">modelo V5</span></td><td class="n">5 arcos</td><td>Arcos con las palabras del título, columnas y tubos (ver «Construye la obra»).</td><td>Bajo el relator; ya instalados antes del M0.</td></tr><tr><td>Repisas del M0<span class="src">modelo V5</span></td><td class="n">4</td><td>≈ 7 secciones cada una.</td><td>2 junto al muro NE y 2 junto al SE.</td></tr></tbody></table></div></div>
+    </div>
+    <div class="ft-notes">
+      <div class="panel"><h3>Medidas del modelo</h3><p>Las marcadas «modelo V5» salen del montaje digital: alturas de lente, distancias a muros, tamaños de imagen y relaciones de tiro, verificadas con trazado de rayos (sin sombras del público sobre paneles ni relator). La sala de 8,3 × 6,0 × 4,0 m es supuesta: con otra planta se recalculan las posiciones.</p></div>
+      <div class="panel"><h3>Antes de comprar</h3><p>Validar en el recinto el alto libre, los puntos de anclaje en el cielo, la capacidad eléctrica y el oscurecimiento. Comprobar con el proveedor que el proyector cenital admite montaje vertical y que los de panel cubren la imagen con tiro 0,50.</p></div>
+      <div class="panel"><h3>Contenido</h3><p>Tres señales de video: mapping del relator, caricatura (E y O) y transcripción (N y S), más el audio en estéreo. Las proyecciones sobre el relator vienen corregidas por el relieve; en el recinto solo se ajusta la posición, sin corrección de trapecio.</p></div>
+    </div>
+  </div>
+</section>
 <!-- Créditos -->
 <section class="s-light pad" id="creditos" aria-labelledby="h-cre">
   <div class="wrap">
@@ -670,7 +715,7 @@ const onScroll=()=>nav.classList.toggle('compact',scrollY>40);
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 const links=[...document.querySelectorAll('.nav ul a')];
 const secIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;links.forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+id))}}),{rootMargin:'-45% 0px -50% 0px'});
-['obra','momentos','recorrido','proceso','construye','creditos'].forEach(id=>secIO.observe(document.getElementById(id)));
+['obra','momentos','recorrido','proceso','construye','ficha','creditos'].forEach(id=>secIO.observe(document.getElementById(id)));
 
 /* hero: escala ligada al scroll si no hay animation-timeline */
 const himg=$('.hero-media img');
@@ -810,6 +855,16 @@ else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e
 let v0='sala';try{const s=localStorage.getItem('esdm_view');if(s&&VIEWS[s])v0=s}catch(e){}
 load(v0,0,0,false);requestAnimationFrame(()=>{draw();railState(rst)});
 })();
+</script>
+
+<script>
+(()=>{const tl=document.getElementById('fttabs');if(!tl)return;const bs=[...tl.querySelectorAll('button')];
+function sel(b){bs.forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById('ftp-'+x.dataset.ft).hidden=!on})}
+bs.forEach(b=>b.addEventListener('click',()=>sel(b)));
+tl.addEventListener('keydown',e=>{const i=bs.indexOf(document.activeElement);if(i<0)return;let j=null;
+ if(e.key==='ArrowRight')j=(i+1)%bs.length;else if(e.key==='ArrowLeft')j=(i-1+bs.length)%bs.length;else if(e.key==='Home')j=0;else if(e.key==='End')j=bs.length-1;
+ if(j!==null){e.preventDefault();bs[j].focus();sel(bs[j])}});
+sel(bs[0]);})();
 </script>
 </body>
 </html>
