@@ -364,8 +364,9 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
 .hero-stage{position:sticky;top:0;height:100svh;overflow:hidden}
 .hero.static .hero-stage{position:static;height:auto}
 #hero-cv{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero-stage.fallback #hero-cv{display:none}
-.hero-fallback{display:none;width:100%;max-width:1400px;margin:clamp(40px,8vh,90px) auto 0}
+.hero-stage.fallback #hero-cv,.hero.static #hero-cv{display:none}
+.hero-fallback{display:none;width:100%;max-width:1400px;height:auto;margin:clamp(28px,6vh,72px) auto 0}
+.hero.static .hero-copy{padding-top:0}
 .hero-stage.fallback .hero-fallback,.hero.static .hero-fallback{display:block}
 .hero-copy{position:relative;z-index:2;padding-top:calc(var(--nav-h) + 6vh);pointer-events:none}
 .hero-copy .display{font-size:clamp(38px,6.2vw,80px)}
@@ -1111,9 +1112,9 @@ tl.addEventListener('keydown',e=>{const i=bs.indexOf(document.activeElement);if(
 sel(bs[0]);})();
 </script>
 <script>document.querySelectorAll('.lang a').forEach(a=>a.addEventListener('click',()=>{a.href=a.getAttribute('href').split('#')[0]+location.hash}))</script>
-<script type="importmap">{"imports":{"three":"./g/three/three.module.min.js","three/addons/":"./g/three/jsm/"}}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Music&display=swap">
 <script>if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.getElementById('top').classList.add('static')</script>
 <script type="module" src="g/hero.js"></script>
+<script>setTimeout(function(){if(!window.__heroOK){var s=document.getElementById('hero-stage'),t=document.getElementById('top');if(s&&!s.classList.contains('on')){s.classList.add('fallback');t.classList.add('static')}}},9000)</script>
 </body>
 </html>
