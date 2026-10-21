@@ -1,7 +1,7 @@
 /* Portada: la sección 13 del relator (recuerdo del 16-05-2026) gira y viaja hasta completar el relator. three.js, guiado por el scroll. */
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+import * as THREE from './three/three.module.min.js';
+import { GLTFLoader } from './three/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from './three/jsm/loaders/DRACOLoader.js';
 
 const stage = document.getElementById('hero-stage'), cv = document.getElementById('hero-cv'), hero = document.getElementById('top');
 const RM = matchMedia('(prefers-reduced-motion: reduce)');
@@ -17,6 +17,7 @@ const q0 = new THREE.Quaternion(), q1 = new THREE.Quaternion(), p0 = new THREE.V
 function init() {
   try { renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true, powerPreference: 'high-performance' }) }
   catch (e) { return bail() }
+  cv.addEventListener('webglcontextlost', e => { e.preventDefault(); bail() });
   renderer.setPixelRatio(Math.min(2, devicePixelRatio || 1)); renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.NoToneMapping;
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(20, 1, 5, 6000);
@@ -33,13 +34,13 @@ function init() {
     const c = new THREE.Vector3(...META.center);
     s.scene.traverse(o => { if (!o.isMesh) return; o.position.sub(c); if (o.name === 'cara') { cara = o; o.material = caraMat(); o.renderOrder = 2 } else { pieceMesh = o; o.material = pla() } });
     piece.add(s.scene); p1.copy(c);
-    poses(); ready = true; stage.classList.add('on'); kick();
+    poses(); ready = true; window.__heroOK = true; stage.classList.add('on'); kick();
   }).catch(e => { console.warn('hero3d', e); bail() });
   new ResizeObserver(size).observe(stage); size();
   new IntersectionObserver(es => { vis = es[0].isIntersecting; if (vis) { lastT = 0; kick() } }).observe(stage);
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 }
-function bail() { fail = true; stage.classList.add('fallback') }
+function bail() { fail = true; window.__heroOK = false; stage.classList.add('fallback'); hero.classList.add('static') }
 
 function caraMat() {
   const clef = clefTexture();
