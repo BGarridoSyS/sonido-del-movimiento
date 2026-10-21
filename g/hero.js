@@ -1,7 +1,7 @@
 /* Portada: la sección 13 del relator (recuerdo del 16-05-2026) gira y viaja hasta completar el relator. three.js, guiado por el scroll. */
 import * as THREE from './three/three.module.min.js';
-import { GLTFLoader } from './three/jsm/loaders/GLTFLoader.js';
-import { DRACOLoader } from './three/jsm/loaders/DRACOLoader.js';
+import { GLTFLoader } from './three/GLTFLoader.js';
+import { DRACOLoader } from './three/DRACOLoader.js';
 
 const stage = document.getElementById('hero-stage'), cv = document.getElementById('hero-cv'), hero = document.getElementById('top');
 const RM = matchMedia('(prefers-reduced-motion: reduce)');
