@@ -48,6 +48,19 @@ a{color:inherit}
 .skip:focus{top:12px}
 :focus-visible{outline:2px solid var(--sacc,var(--l-acc));outline-offset:3px;border-radius:6px}
 
+/* patrimonio */
+.patr-q{margin:34px 0 0;padding-left:20px;border-left:3px solid var(--sacc);color:var(--sfg);font-size:clamp(18px,1.8vw,21px);line-height:1.5;max-width:38em}
+.patr-q cite{display:block;margin-top:10px;font-style:normal;font-size:15px;color:var(--sfg2)}
+.patr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:44px}
+@media (max-width:900px){.patr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.patr-grid{grid-template-columns:1fr}}
+.patr-c{display:flex;flex-direction:column;gap:6px;padding:20px 20px 22px;background:var(--scard);border:1px solid var(--srule);border-radius:16px;text-decoration:none;color:var(--sfg);min-width:0}
+.patr-c:hover{border-color:var(--sacc)}
+.patr-c .k{font-size:13px;font-weight:600;color:var(--sfg2);font-variant-numeric:tabular-nums}
+.patr-c b{font-size:19px;letter-spacing:-.01em;color:var(--sacc)}
+.patr-c span:last-child{font-size:16px;line-height:1.45;color:var(--sfg2)}
+.ptag{display:inline-block;margin-left:10px;padding:2px 10px;border:1px solid currentColor;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.02em;opacity:.85;vertical-align:middle}
+
 /* secciones */
 .s-light{--sbg:var(--l-bg);--salt:var(--l-alt);--sfg:var(--l-fg);--sfg2:var(--l-fg2);--srule:var(--l-rule);--scard:var(--l-card);--sacc:var(--l-acc)}
 .s-alt{--sbg:var(--l-alt);--salt:var(--l-bg);--sfg:var(--l-fg);--sfg2:var(--l-fg2);--srule:var(--l-rule);--scard:var(--l-bg);--sacc:var(--l-acc)}
@@ -392,6 +405,7 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
     <a class="brand" href="#top">El sonido del movimiento</a>
     <nav aria-label="Secciones"><ul>
       <li><a href="#obra">La obra</a></li>
+      <li><a href="#patrimonio">Patrimonio</a></li>
       <li><a href="#momentos">Momentos</a></li>
       <li><a href="#recorrido">Recorrido</a></li>
       <li><a href="#proceso">Proceso</a></li>
@@ -473,6 +487,17 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
   </div>
 </section>
 
+<!-- 2b · Patrimonio -->
+<section class="s-alt pad" id="patrimonio" aria-labelledby="h-patr">
+  <div class="wrap">
+    <p class="eyebrow rv">La sismología como patrimonio</p>
+    <h2 class="h2 rv d1" id="h-patr">El movimiento también nos define.</h2>
+    <div class="prose rv d2" style="margin-top:28px"><p>Solemos pensar el patrimonio como algo inmóvil: palacios, monumentos de piedra, tradiciones folclóricas. Pero el patrimonio también es aquello que define nuestras prácticas sociales, transmite valores de una generación a otra y se resignifica con el tiempo. Habitar Chile implica convivir con el latido de la Tierra.</p><p>La memoria grabada en un sismograma, los relatos orales de quienes sobrevivieron a grandes catástrofes y la evolución del conocimiento científico para protegernos forman un legado intangible y natural. Es una herencia que resignificamos con cada nuevo sismo, transformando el miedo en resiliencia, arte y comunidad.</p></div>
+    <blockquote class="patr-q rv">«Quiero mostrarles cómo el movimiento de la Tierra nos define como personas y a nuestro entorno, desde la creencia hasta el conocimiento científico, y cómo nosotros también podemos afectarlo y verlo a través de la memoria de un sismograma.»<cite>— Bastián I. Garrido Kogan</cite></blockquote>
+    <div class="patr-grid"><a class="patr-c rv" href="#m-M0"><span class="k">M0</span><b>Comunitario</b><span>El público arma el país, sección por sección.</span></a><a class="patr-c rv" href="#m-M1"><span class="k">M1</span><b>Inmaterial</b><span>El relato mapuche de Tren Tren Vilu y Caicai Vilu: la transformación del territorio.</span></a><a class="patr-c rv" href="#m-M2"><span class="k">M2</span><b>Documental</b><span>Crónicas coloniales y el tsunami de 1730, registrado también en Japón.</span></a><a class="patr-c rv" href="#m-M3"><span class="k">M3</span><b>Científico y tecnológico</b><span>Madariaga, Asuar y el COMDASUAR: el inicio de la sismología moderna en Chile.</span></a><a class="patr-c rv" href="#m-M4"><span class="k">M4</span><b>Memoria</b><span>Los registros sísmicos del 11 de septiembre de 1973.</span></a><a class="patr-c rv" href="#m-M5"><span class="k">M5</span><b>Natural</b><span>El silencio sísmico de la pandemia y el regreso del bosque.</span></a></div>
+  </div>
+</section>
+
 <!-- 3 · Momentos (sticky) -->
 <section class="s-dark" id="momentos" aria-labelledby="h-mom">
   <div class="wrap">
@@ -521,7 +546,7 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
 <!-- 5 · Construye -->
 <section class="s-dark pad" id="construye" aria-labelledby="h-con">
   <div class="wrap">
-    <p class="eyebrow rv">Kit de impresión 3D · cinco arcos, 26 secciones</p>
+    <p class="eyebrow rv">Material de educación patrimonial · kit de impresión 3D · cinco arcos, 26 secciones</p>
     <h2 class="h2 rv d1" id="h-con">Construye la obra en tu colegio.</h2>
     <div class="prose rv d2" style="margin-top:28px">
       <p>En vez de trasladar la obra, se puede imprimir donde se va a mostrar. El relator se arma por arcos: cada arco lleva una palabra del título, <em>El · Sonido · Del · Movimiento · 2026</em>, se apoya en sus columnas y sostiene, con tubos, sus secciones de un grado de latitud: arriba el relieve de Chile continental, abajo la placa de Nazca que subducta bajo la Sudamericana.</p>
@@ -648,7 +673,7 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
       </div>
     </div>
     <details class="refs" id="referencias">
-      <summary>Referencias · respaldo científico e histórico</summary>
+      <summary>Referencias · respaldo científico, histórico y fuentes patrimoniales</summary>
       <ol class="rl" id="refs"></ol>
     </details>
   </div>
@@ -791,7 +816,7 @@ const onScroll=()=>nav.classList.toggle('compact',scrollY>40);
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 const links=[...document.querySelectorAll('.nav ul a')];
 const secIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;links.forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+id))}}),{rootMargin:'-45% 0px -50% 0px'});
-['obra','momentos','recorrido','proceso','construye','ficha','creditos'].forEach(id=>secIO.observe(document.getElementById(id)));
+['obra','patrimonio','momentos','recorrido','proceso','construye','ficha','creditos'].forEach(id=>secIO.observe(document.getElementById(id)));
 
 /* hero: escala ligada al scroll si no hay animation-timeline */
 const himg=$('.hero-media img');
@@ -812,11 +837,11 @@ const EVS=[
  {n:3,y:1906,f:'16 de agosto de 1906',lug:'Valparaíso',lat:33.05,lon:-71.62,A:3.8,B:1.75},
  {n:4,y:1939,f:'24 de enero de 1939',lug:'Chillán',lat:36.61,lon:-72.10,A:1.6,B:1.6}];
 const LEN=[170,180,360,180,160,180];               /* recorrido de scroll por momento (svh) */
-const steps=$('#msteps');
+const steps=$('#msteps');const PTAG=["Comunitario","Inmaterial","Documental","Científico y tecnológico","Memoria","Natural"];
 const evList=`<ol class="evs" id="evs" aria-label="Terremotos del momento">${EVS.map((e,i)=>`<li data-e="${i}"><span class="y">${e.y}</span><span class="pl">${e.lug}<small>${e.f}</small></span><span class="bar"><i></i></span></li>`).join('')}</ol>`;
 M.forEach((m,i)=>{
   const a=document.createElement('article');a.className='step'+(i?'':' active');a.id='m-'+m.k;a.dataset.i=i;a.style.setProperty('--len',LEN[i]+'svh');
-  a.innerHTML=`<div class="step-in"><span class="k">${m.k} · ${fmtT(B[i])}–${fmtT(B[i+1])}</span><h3 class="h3">${m.t}</h3><p class="per">${m.period}</p>
+  a.innerHTML=`<div class="step-in"><span class="k">${m.k} · ${fmtT(B[i])}–${fmtT(B[i+1])}<span class="ptag">Patrimonio · ${PTAG[i]}</span></span><h3 class="h3">${m.t}</h3><p class="per">${m.period}</p>
    <p class="sub">${m.sub}</p><p class="t">${m.txt}</p>${i===2?evList:''}${WEBN[i]?`<p class="webn">${WEBN[i]}</p>`:""}
    <dl>${m.kv.map(([x,y])=>`<dt>${x}</dt><dd>${y}</dd>`).join('')}</dl>
    <a class="link" href="#recorrido" data-go="${i}">Ver ${m.k} en el recorrido</a></div>`;
