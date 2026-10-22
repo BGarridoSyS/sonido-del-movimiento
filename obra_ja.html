@@ -48,6 +48,19 @@ a{color:inherit}
 .skip:focus{top:12px}
 :focus-visible{outline:2px solid var(--sacc,var(--l-acc));outline-offset:3px;border-radius:6px}
 
+/* patrimonio */
+.patr-q{margin:34px 0 0;padding-left:20px;border-left:3px solid var(--sacc);color:var(--sfg);font-size:clamp(18px,1.8vw,21px);line-height:1.5;max-width:38em}
+.patr-q cite{display:block;margin-top:10px;font-style:normal;font-size:15px;color:var(--sfg2)}
+.patr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:44px}
+@media (max-width:900px){.patr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.patr-grid{grid-template-columns:1fr}}
+.patr-c{display:flex;flex-direction:column;gap:6px;padding:20px 20px 22px;background:var(--scard);border:1px solid var(--srule);border-radius:16px;text-decoration:none;color:var(--sfg);min-width:0}
+.patr-c:hover{border-color:var(--sacc)}
+.patr-c .k{font-size:13px;font-weight:600;color:var(--sfg2);font-variant-numeric:tabular-nums}
+.patr-c b{font-size:19px;letter-spacing:-.01em;color:var(--sacc)}
+.patr-c span:last-child{font-size:16px;line-height:1.45;color:var(--sfg2)}
+.ptag{display:inline-block;margin-left:10px;padding:2px 10px;border:1px solid currentColor;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.02em;opacity:.85;vertical-align:middle}
+
 /* secciones */
 .s-light{--sbg:var(--l-bg);--salt:var(--l-alt);--sfg:var(--l-fg);--sfg2:var(--l-fg2);--srule:var(--l-rule);--scard:var(--l-card);--sacc:var(--l-acc)}
 .s-alt{--sbg:var(--l-alt);--salt:var(--l-bg);--sfg:var(--l-fg);--sfg2:var(--l-fg2);--srule:var(--l-rule);--scard:var(--l-bg);--sacc:var(--l-acc)}
@@ -405,6 +418,7 @@ html:lang(ja) .fig b{white-space:nowrap;word-break:keep-all}
     <a class="brand" href="#top">動きの音</a>
     <nav aria-label="セクション"><ul>
       <li><a href="#obra">作品</a></li>
+      <li><a href="#patrimonio">遺産</a></li>
       <li><a href="#momentos">モメント</a></li>
       <li><a href="#recorrido">鑑賞</a></li>
       <li><a href="#proceso">制作過程</a></li>
@@ -487,6 +501,17 @@ html:lang(ja) .fig b{white-space:nowrap;word-break:keep-all}
   </div>
 </section>
 
+<!-- 2b · Patrimonio -->
+<section class="s-alt pad" id="patrimonio" aria-labelledby="h-patr">
+  <div class="wrap">
+    <p class="eyebrow rv">遺産としての地震学</p>
+    <h2 class="h2 rv d1" id="h-patr">動きもまた、私たちを形づくる。</h2>
+    <div class="prose rv d2" style="margin-top:28px"><p>遺産というと、宮殿や石の記念碑、民俗の伝統など、動かないものを思い浮かべがちである。しかし遺産とは、私たちの社会的な営みを形づくり、世代から世代へと価値を伝え、時とともに新たな意味を帯びていくものでもある。チリに暮らすことは、大地の鼓動とともに生きることだ。</p><p>地震計に刻まれた記憶、大災害を生き延びた人々の語り、そして私たちを守るために発展してきた科学的知識は、無形であり自然でもある遺産をなしている。それは新たな地震のたびに意味を問い直され、恐れをレジリエンスと芸術と共同体へと変えていく継承である。</p></div>
+    <blockquote class="patr-q rv">「大地の動きが、信仰から科学的知識に至るまで、人としての私たちと私たちを取り巻く環境をどのように形づくっているのか。そして私たち自身もその動きに影響を与え、地震記録の記憶を通してそれを見ることができるのだということを、お見せしたい。」<cite>— バスティアン・I・ガリード・コガン</cite></blockquote>
+    <div class="patr-grid"><a class="patr-c rv" href="#m-M0"><span class="k">M0</span><b>共同体</b><span>来場者が、国をセクションごとに組み立てる。</span></a><a class="patr-c rv" href="#m-M1"><span class="k">M1</span><b>無形</b><span>マプチェのトレントレン・ビルとカイカイ・ビルの物語：大地の変容。</span></a><a class="patr-c rv" href="#m-M2"><span class="k">M2</span><b>記録</b><span>植民地時代の年代記と、日本でも記録された1730年の津波。</span></a><a class="patr-c rv" href="#m-M3"><span class="k">M3</span><b>科学・技術</b><span>マダリアガ、アスアル、COMDASUAR：チリにおける近代地震学のはじまり。</span></a><a class="patr-c rv" href="#m-M4"><span class="k">M4</span><b>記憶</b><span>1973年9月11日の地震記録。</span></a><a class="patr-c rv" href="#m-M5"><span class="k">M5</span><b>自然</b><span>パンデミックの地震的な静けさと、森の回復。</span></a></div>
+  </div>
+</section>
+
 <!-- 3 · Momentos (sticky) -->
 <section class="s-dark" id="momentos" aria-labelledby="h-mom">
   <div class="wrap">
@@ -535,7 +560,7 @@ html:lang(ja) .fig b{white-space:nowrap;word-break:keep-all}
 <!-- 5 · Construye -->
 <section class="s-dark pad" id="construye" aria-labelledby="h-con">
   <div class="wrap">
-    <p class="eyebrow rv">3Dプリントキット · 五つのアーチ、26セクション</p>
+    <p class="eyebrow rv">遺産教育の教材 · 3Dプリントキット · 五つのアーチ、26セクション</p>
     <h2 class="h2 rv d1" id="h-con">学校で作品をつくる。</h2>
     <div class="prose rv d2" style="margin-top:28px">
       <p>作品を運ぶ代わりに、展示する場所で印刷できる。レラトールはアーチ単位で組み立てる。各アーチはタイトルの一語——<em>El · Sonido · Del · Movimiento · 2026</em>——を担い、柱の上に載り、チューブで緯度1度ずつのセクションを支える。上はチリ本土の地形、下は南米プレートの下へ沈み込むナスカプレートである。</p>
@@ -662,7 +687,7 @@ html:lang(ja) .fig b{white-space:nowrap;word-break:keep-all}
       </div>
     </div>
     <details class="refs" id="referencias">
-      <summary>参考文献 · 科学的・歴史的裏づけ</summary>
+      <summary>参考文献 · 科学的・歴史的裏づけと遺産資料</summary>
       <ol class="rl" id="refs"></ol>
     </details>
   </div>
@@ -805,7 +830,7 @@ const onScroll=()=>nav.classList.toggle('compact',scrollY>40);
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 const links=[...document.querySelectorAll('.nav ul a')];
 const secIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;links.forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+id))}}),{rootMargin:'-45% 0px -50% 0px'});
-['obra','momentos','recorrido','proceso','construye','ficha','creditos'].forEach(id=>secIO.observe(document.getElementById(id)));
+['obra','patrimonio','momentos','recorrido','proceso','construye','ficha','creditos'].forEach(id=>secIO.observe(document.getElementById(id)));
 
 /* hero: escala ligada al scroll si no hay animation-timeline */
 const himg=$('.hero-media img');
@@ -826,11 +851,11 @@ const EVS=[
  {n:3,y:1906,f:'1906年8月16日',lug:'バルパライソ',lat:33.05,lon:-71.62,A:3.8,B:1.75},
  {n:4,y:1939,f:'1939年1月24日',lug:'チジャン',lat:36.61,lon:-72.10,A:1.6,B:1.6}];
 const LEN=[170,180,360,180,160,180];               /* recorrido de scroll por momento (svh) */
-const steps=$('#msteps');
+const steps=$('#msteps');const PTAG=["共同体","無形","記録","科学・技術","記憶","自然"];
 const evList=`<ol class="evs" id="evs" aria-label="このモメントの地震">${EVS.map((e,i)=>`<li data-e="${i}"><span class="y">${e.y}</span><span class="pl">${e.lug}<small>${e.f}</small></span><span class="bar"><i></i></span></li>`).join('')}</ol>`;
 M.forEach((m,i)=>{
   const a=document.createElement('article');a.className='step'+(i?'':' active');a.id='m-'+m.k;a.dataset.i=i;a.style.setProperty('--len',LEN[i]+'svh');
-  a.innerHTML=`<div class="step-in"><span class="k">${m.k} · ${fmtT(B[i])}–${fmtT(B[i+1])}</span><h3 class="h3">${m.t}</h3><p class="per">${m.period}</p>
+  a.innerHTML=`<div class="step-in"><span class="k">${m.k} · ${fmtT(B[i])}–${fmtT(B[i+1])}<span class="ptag">遺産 · ${PTAG[i]}</span></span><h3 class="h3">${m.t}</h3><p class="per">${m.period}</p>
    <p class="sub">${m.sub}</p><p class="t">${m.txt}</p>${i===2?evList:''}${WEBN[i]?`<p class="webn">${WEBN[i]}</p>`:""}
    <dl>${m.kv.map(([x,y])=>`<dt>${x}</dt><dd>${y}</dd>`).join('')}</dl>
    <a class="link" href="#recorrido" data-go="${i}">${m.k} を「鑑賞」で見る</a></div>`;
