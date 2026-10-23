@@ -61,6 +61,13 @@ a{color:inherit}
 .patr-c span:last-child{font-size:16px;line-height:1.45;color:var(--sfg2)}
 .ptag{display:inline-block;margin-left:10px;padding:2px 10px;border:1px solid currentColor;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.02em;opacity:.85;vertical-align:middle}
 
+/* visita 360 */
+.vr{margin-top:56px;padding-top:40px;border-top:1px solid var(--srule)}
+.vr .lede{margin-top:14px}
+.vr-frame{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;margin-top:26px;border-radius:18px;overflow:hidden;background:#000}
+.vr-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vr-note{margin:14px 0 0;font-size:15px;color:var(--sfg2);max-width:46em}
+
 /* secciones */
 .s-light{--sbg:var(--l-bg);--salt:var(--l-alt);--sfg:var(--l-fg);--sfg2:var(--l-fg2);--srule:var(--l-rule);--scard:var(--l-card);--sacc:var(--l-acc)}
 .s-alt{--sbg:var(--l-alt);--salt:var(--l-bg);--sfg:var(--l-fg);--sfg2:var(--l-fg2);--srule:var(--l-rule);--scard:var(--l-bg);--sacc:var(--l-acc)}
@@ -529,6 +536,13 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
       <div class="ptools"><span class="mut" style="font-size:14px">Seismogram of the exhibition · sound envelope, 0.5 s per sample</span><span class="clock" id="clock">00:00 / 09:07</span></div>
       <div class="chips" id="chips" role="group" aria-label="Moments"></div>
       <div class="pinfo" id="pinfo" aria-live="polite"></div>
+    </div>
+    <div class="vr rv">
+      <p class="eyebrow">360° visit · virtual reality</p>
+      <h3 class="h3">Stand in the room.</h3>
+      <p class="lede">The whole exhibition from the position of a 1.65 m adult in the second row on the west side. During M0 the view follows their path while they assemble the relator; from M1 on it stays still and you choose where to look.</p>
+      <div class="vr-frame"><iframe src="https://www.youtube-nocookie.com/embed/VFVwytNrvDk?rel=0" title="The sound of movement: 360° visit" loading="lazy" allow="accelerometer; gyroscope; encrypted-media; picture-in-picture; fullscreen; xr-spatial-tracking" allowfullscreen></iframe></div>
+      <p class="vr-note">Drag the image or move your phone to turn the view. On a virtual-reality headset such as Meta Quest, open it in the YouTube VR app. Web edition: without third-party musical or literary works. <a class="inl" href="https://youtu.be/VFVwytNrvDk" target="_blank" rel="noopener">Open on YouTube</a></p>
     </div>
     <div class="ctas"><a class="link" href="#proceso">See how it was made</a></div>
   </div>
