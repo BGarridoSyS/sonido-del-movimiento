@@ -61,6 +61,13 @@ a{color:inherit}
 .patr-c span:last-child{font-size:16px;line-height:1.45;color:var(--sfg2)}
 .ptag{display:inline-block;margin-left:10px;padding:2px 10px;border:1px solid currentColor;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.02em;opacity:.85;vertical-align:middle}
 
+/* visita 360 */
+.vr{margin-top:56px;padding-top:40px;border-top:1px solid var(--srule)}
+.vr .lede{margin-top:14px}
+.vr-frame{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;margin-top:26px;border-radius:18px;overflow:hidden;background:#000}
+.vr-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vr-note{margin:14px 0 0;font-size:15px;color:var(--sfg2);max-width:46em}
+
 /* secciones */
 .s-light{--sbg:var(--l-bg);--salt:var(--l-alt);--sfg:var(--l-fg);--sfg2:var(--l-fg2);--srule:var(--l-rule);--scard:var(--l-card);--sacc:var(--l-acc)}
 .s-alt{--sbg:var(--l-alt);--salt:var(--l-bg);--sfg:var(--l-fg);--sfg2:var(--l-fg2);--srule:var(--l-rule);--scard:var(--l-bg);--sacc:var(--l-acc)}
@@ -542,6 +549,13 @@ html:lang(ja) .fig b{white-space:nowrap;word-break:keep-all}
       <div class="ptools"><span class="mut" style="font-size:14px">展覧会のサイスモグラム · 音の包絡線、1サンプル0.5秒</span><span class="clock" id="clock">00:00 / 09:07</span></div>
       <div class="chips" id="chips" role="group" aria-label="モメント"></div>
       <div class="pinfo" id="pinfo" aria-live="polite"></div>
+    </div>
+    <div class="vr rv">
+      <p class="eyebrow">360°ビジット · バーチャルリアリティ</p>
+      <h3 class="h3">展示室に立つ。</h3>
+      <p class="lede">西側の2列目に立つ身長1.65 mの大人の位置から、展覧会全体を体験する。M0ではレラトールを組み立てる動きに視点が寄り添い、M1以降は位置が固定され、どこを見るかは自由に選べる。</p>
+      <div class="vr-frame"><iframe src="https://www.youtube-nocookie.com/embed/VFVwytNrvDk?rel=0" title="動きの音：360°ビジット" loading="lazy" allow="accelerometer; gyroscope; encrypted-media; picture-in-picture; fullscreen; xr-spatial-tracking" allowfullscreen></iframe></div>
+      <p class="vr-note">画像をドラッグするか、スマートフォンを動かして視点を回転させる。Meta QuestなどのVRヘッドセットでは、YouTube VRアプリで開く。ウェブ版：第三者の音楽・文学作品は含まない。 <a class="inl" href="https://youtu.be/VFVwytNrvDk" target="_blank" rel="noopener">YouTubeで開く</a></p>
     </div>
     <div class="ctas"><a class="link" href="#proceso">制作過程を見る</a></div>
   </div>
