@@ -291,6 +291,28 @@ video::cue{font-family:Inter,system-ui,sans-serif;font-size:.95em;background:rgb
 .lams li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--srule);font-size:16px;line-height:1.45;color:var(--sfg2)}
 .lams li span{font-weight:600;color:var(--sfg);font-variant-numeric:tabular-nums}
 
+/* dossier y contacto */
+.dos-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(24px,4vw,56px);margin-top:40px;align-items:start}
+@media(max-width:860px){.dos-grid{grid-template-columns:1fr}}
+.dos-sum{margin:0;font-size:17px;line-height:1.6;color:var(--sfg2);max-width:36em}
+.dos-txt .ctas{margin-top:26px}
+.dos-vid{margin:0;min-width:0}
+.dos-vid video{display:block;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:18px;background:#000}
+.dos-vid figcaption{margin-top:10px;font-size:14px;line-height:1.45;color:var(--sfg2)}
+.cform{position:relative;margin-top:56px;padding-top:40px;border-top:1px solid var(--srule);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px;max-width:900px}
+.cform h3{grid-column:1/-1;font-size:26px;letter-spacing:-.02em;margin:0}
+.cform .full{grid-column:1/-1}
+.cform label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:var(--sfg);min-width:0}
+.cform input,.cform select,.cform textarea{font:400 16px/1.4 var(--font);color:var(--sfg);background:var(--scard);border:1px solid var(--srule);border-radius:12px;padding:12px 14px;min-width:0;width:100%;box-sizing:border-box}
+.cform textarea{min-height:140px;resize:vertical}
+.cform input:focus-visible,.cform select:focus-visible,.cform textarea:focus-visible{outline:2px solid var(--sacc);outline-offset:1px}
+.cform .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cform .note{grid-column:1/-1;margin:0;font-size:14px;line-height:1.5;color:var(--sfg2)}
+.cform .act{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.cform .st{font-size:15px;color:var(--sfg)}
+@media(max-width:640px){.cform{grid-template-columns:1fr}}
+.cr-h{font-size:21px;letter-spacing:-.015em;margin:44px 0 0}
+.cr-h+.people{margin-top:16px}
 /* créditos */
 .people{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:44px}
 .person{background:var(--scard);border-radius:16px;padding:22px;transition:transform .35s var(--ease)}
@@ -431,6 +453,7 @@ html:lang(ja) .fig b{white-space:nowrap;word-break:keep-all}
       <li><a href="#proceso">制作過程</a></li>
       <li><a href="#construye">つくる</a></li>
       <li><a href="#ficha">技術仕様</a></li>
+      <li><a href="#dossier">資料</a></li>
       <li><a href="#creditos">クレジット</a></li>
     </ul></nav>
     <nav class="lang" aria-label="言語"><a href="obra.html" hreflang="es" lang="es">ES</a><a href="obra_en.html" hreflang="en" lang="en">EN</a><a href="obra_ja.html" hreflang="ja" lang="ja" aria-current="true">JA</a></nav>
@@ -667,10 +690,28 @@ html:lang(ja) .fig b{white-space:nowrap;word-break:keep-all}
   </div>
 </section>
 <!-- Créditos -->
+<!-- dossier · evaluadores y contacto -->
+<section class="s-dark pad" id="dossier" aria-labelledby="h-dos">
+  <div class="wrap">
+    <p class="eyebrow rv">審査員・企画担当者の方へ</p>
+    <h2 class="h2 rv d1" id="h-dos">2分でわかる本展。</h2>
+    <div class="dos-grid">
+      <div class="dos-txt">
+        <p class="dos-sum rv"><i>El sonido del movimiento</i>（動きの音）は、地震学をチリの文化遺産として紹介する没入型の展覧会である。ひとつの展示室で、来場者は自らの手でレラトールを組み立てる。レラトールは、ナスカプレートの沈み込みの上に南緯17度から43度までのチリを再現した、3Dプリントによる26のセクションからなる楽器である。その上にマッピングが投影され、4枚のパネルにはアニメーションと語りの字幕が映し出される。9分間で、6つのモメントが500年にわたる地震の歴史をたどる。トレン・トレン・ビルとカイカイ・ビルのマプチェの物語から、植民地時代の年代記、ラウル・マダリアガとホセ・ビセンテ・アスアルによる現代地震学の誕生、1973年9月11日の地震記録、そしてパンデミックの地震的静寂まで。音楽は時間を逆にたどり、人工知能から自然の音へと向かう。本展は科学、芸術、記憶を結びつけ、学校で組み立てられる印刷用キットも提供している。</p>
+        <div class="ctas rv"><a class="btn" href="dossier_el_sonido_del_movimiento.pdf" download>資料をダウンロード（PDF・スペイン語・6ページ）</a><a class="link" href="https://youtu.be/VFVwytNrvDk" target="_blank" rel="noopener">YouTubeで360°見学</a></div>
+      </div>
+      <figure class="dos-vid rv"><video controls playsinline preload="none" poster="p/teaser.jpg" src="vw/teaser.mp4" aria-label="展覧会の予告編"></video><figcaption>2分10秒の予告編 · 映像モックアップV5、大人の視点、第三者の作品を除いたウェブ版。</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <section class="s-light pad" id="creditos" aria-labelledby="h-cre">
   <div class="wrap">
-    <p class="eyebrow rv">作者、登場人物、参照した人々</p>
+    <p class="eyebrow rv">チーム、登場人物、参照した人々</p>
     <h2 class="h2 rv d1" id="h-cre">芸術家と科学者。</h2>
+    <h3 class="cr-h rv">チーム</h3>
+    <div class="people" id="equipo"></div>
+    <h3 class="cr-h rv">登場人物と参照した人々</h3>
     <div class="people" id="people"></div>
     <div class="rights" id="derechos">
       <div class="panel">
@@ -687,7 +728,8 @@ html:lang(ja) .fig b{white-space:nowrap;word-break:keep-all}
       <div class="panel">
         <h3>人工知能の使用</h3>
         <ul>
-          <li>映像モックアップ、アニメーション、構成は、作者の脚本、スケッチ、音声をもとに、Claude（Anthropic）の支援を受けて制作した。</li>
+          <li>映像モックアップと構成は、作者の脚本、スケッチ、音声をもとに、Claude（Anthropic）の支援を受けて制作した。</li>
+          <li>パネルのアニメーションは、アナ・ノランブエナの画風をもとにAIの支援で制作した作業用スケッチであり、最終的なアニメーションは彼女自身が描く。</li>
           <li>ラウル・マダリアガとホセ・ビセンテ・アスアルのカリカチュアは架空の再現であり、M3の出会いは実際には起こっていない。</li>
           <li>「初期ビジュアル」段階の画像はGoogle Geminiで生成したもので、写真ではない。</li>
           <li>展示室でのM1の語りの声は合成音声であり、本版では公開しない。</li>
@@ -719,7 +761,7 @@ html:lang(ja) .fig b{white-space:nowrap;word-break:keep-all}
 
 <footer>
   <div class="wrap">
-    <div class="fl"><a href="index.html">クラシック版サイト</a><a href="#derechos">権利とAIの使用</a><a href="#referencias">参考文献</a><a href="#top">ページ上部へ</a></div>
+    <div class="fl"><a href="#dossier">資料</a><a href="#derechos">権利とAIの使用</a><a href="#referencias">参考文献</a><a href="#top">ページ上部へ</a></div>
     <p>本ページの映像は、映像モックアップV5の子ども向け版 v2（9分07秒）のウェブ版である。設営前に作品を確認するために各モメントの展示室と投影を再現しており、<a href="#derechos">権利</a>に記した第三者の作品は省略している。人物はスケールの目安である。</p>
     <p>モックアップ、アニメーション、構成は、作者の脚本、スケッチ、音声をもとに、Claude（Anthropic）の支援を受けて制作した。</p>
   </div>
@@ -784,7 +826,7 @@ const ST=[
   ["g/p04_sala_m1.jpg","古代チリ：パネルに映るトレントレンとカイカイ・ビル。AI生成画像（Google Gemini）。"],
   ["g/p03_render_relator.jpg","転換点：パネルに映るマダリアガとアスアル。AI生成画像（Google Gemini）、架空の再現。"],
   ["g/p07_sala_m5.jpg","記憶 II：隔離期間のスペクトル記録。AI生成画像（Google Gemini）。"]]],
- ["実寸のレラトール","作品の大きさは、身長1.2 mの子どもがレラトールを端から端まで見渡せ、さらに自分で組み立てられるように考えられている。全長3.64 mのレラトールのピースの印刷は2026年1月に始まり、2026年5月16日の報告会までに完成した。",[
+ ["実寸のレラトール","作品の大きさは、身長1.2 mの子どもがレラトールを端から端まで見渡せ、さらに自分で組み立てられるように考えられている。全長3.29 mのレラトールのピースの印刷は2026年1月に始まり、2026年5月16日の報告会までに完成した。",[
   ["g/p13b_relator_final_mesa.jpg","最終サイズのレラトール。手前に番号付きの縮尺モックアップ。"],
   ["g/p13c_relator_final.jpg","最終サイズのレラトール。作者が垂直に支えている。"]]],
  ["進捗報告会","2026年5月16日、展覧会の進捗を発表し、レラトールの大きさが展示室に無理なく収まることを確認した。フライヤーには作者の紹介文を収録。",[
@@ -796,7 +838,7 @@ const ST=[
   ["g/relator_render.jpg","レラトール：作者の3Dモデルのレンダリング。沈み込み面上の、17°Sから43°Sまでの26セクション。"],
   ["g/p14_montaje_v5.jpg","設営V5：高さ80 cmのレラトール、四つのパネル、短焦点プロジェクター、スケール参照用の人物。"],
   ["g/p15_trayectorias.jpg","M0でレラトールを組み立てる15人の動線（平面図）。"]]],
- ["アニメーション","パネルは各モメントをカリカチュア、イラスト、テキストで語る。人工知能の支援で制作。映像モックアップV5のフレーム。",[
+ ["アニメーション","パネルは各モメントをカリカチュア、イラスト、テキストで語る。現在のフレームは、アナ・ノランブエナ（Ana Norambuena）の画風をもとに人工知能の支援で制作した作業用スケッチであり、最終的なアニメーションは彼女自身が描く。映像モックアップV5のフレーム。",[
   ["g/p16_anim_m2_v5.jpg","M2：色を取り戻す、花々に囲まれた心臓。"],
   ["g/p17_anim_m3_v5.jpg","M3：レラトールのセクションを手にしたラウルとホセ・ビセンテ。"],
   ["g/p18_anim_m4_v5.jpg","M4：現在まで年を重ねるラウル。"],
@@ -807,7 +849,6 @@ const ST=[
   ["g/f_vista_m3.jpg","M3：青い地震サイクル。"],["g/f_vista_m5.jpg","M5：緑に覆われたレラトール。"],
   ["g/f_pov_nino.jpg","子どもの目から見た展示室。"],["g/f_pov_adulto.jpg","大人の目から見た展示室。"]]]];
 const P=[
- ["Bastián I. Garrido Kogan","作者","構想、脚本、レラトールと設営の設計。土木技師、耐震工学修士。"],
  ["Raúl Madariaga","地震学者 · M3–M4の登場人物","MIT博士、パリ高等師範学校（École Normale Supérieure）名誉教授。現代地震学の中心人物の一人。"],
  ["José Vicente Asuar","作曲家 · M3の登場人物","チリにおける電子音響音楽とコンピューター音楽の先駆者。COMDASUARの開発者。"],
  ["Sergio Ruiz","地震学者 · 着想の源","チリ大学地球物理学科教授。その研究が本展に着想を与え、複数のモメントを裏づける。"],
@@ -816,8 +857,14 @@ const P=[
  ["Nicanor Parra","詩人 · M2","1939年の地震の後に書かれた「Epopeya de Chillán」の作者。"],
  ["Jorge Peña Hen","作曲家 · M4","作曲家、音楽教育者。その<i>Cuarteto para cuerdas</i>（弦楽四重奏曲、1958）がM4に寄り添う。"],
  ["Frédéric Chopin","作曲家 · M3","練習曲 作品10第11番 変ホ長調。J. V. Asuarによるコンピューター版（<i>El computador virtuoso</i>、1973）。"],
- ["VeryGoodMaps","地図 · M1","レラトールのシーケンスに用いたチリの地形図。"],
- ["Ana Norambuena (Anita)","土木技師 · フライヤーのカリカチュア","進捗報告会フライヤーの表紙となったカリカチュア「Origen tectónico」の作者。"]];
+ ["VeryGoodMaps","地図 · M1","レラトールのシーケンスに用いたチリの地形図。"]];
+const EQ=[
+ ["Bastián I. Garrido Kogan","作者・ディレクター","構想、脚本、レラトールの3Dモデリング、設営の設計、演出。土木技師、耐震工学修士。"],
+ ["Ana Norambuena (Anita)","イラスト・アニメーション","カリカチュア「Origen tectónico」とパネルの画風の作者。最終的なアニメーションを描く。"],
+ ["Fabián Astudillo","3Dプリント","縮尺の26セクションをプリント（2025年8月）。"],
+ ["Enrique Neira","脚本","モメントごとの脚本構成と「レラトール」という名前。"],
+ ["Diego Valenzuela、Carlos Benavides","音楽面の助言","サウンドトラックのための音楽的背景。"],
+ ["Cristian Bastías Curivil","助言 · M1","地質学者、マプチェの世界観の研究者。トレン・トレン・ビルとカイカイ・ビルの物語についての対話（2026年1月）。"]];
 const R=[
  ["レラトール","Hayes, G. P., et al. (2018). Slab2, a comprehensive subduction zone geometry model. <i>Science</i>, 362(6410), 58–61. <a href=\\\"https://doi.org/10.1126/science.aat4723\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">doi:10.1126/science.aat4723</a>"],
  ["M1","Ruiz, S., & Madariaga, R. (2018). Historical and recent large megathrust earthquakes in Chile. <i>Tectonophysics</i>, 733, 37–56. <a href=\\\"https://doi.org/10.1016/j.tecto.2018.01.015\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">doi:10.1016/j.tecto.2018.01.015</a>"],
@@ -1144,6 +1191,7 @@ $('#esc').addEventListener('keydown',e=>{const bs=[...document.querySelectorAll(
 render(1);
 
 /* créditos */
+$('#equipo').innerHTML=EQ.map(([n,r,d])=>`<div class="person rv"><span class="r">${r}</span><h3>${n}</h3><p>${d}</p></div>`).join('');
 $('#people').innerHTML=P.map(([n,r,d])=>`<div class="person rv"><span class="r">${r}</span><h3>${n}</h3><p>${d}</p></div>`).join('');
 $('#refs').innerHTML=R.map(([t,x])=>`<li><span>${t}</span><span>${x}</span></li>`).join('');
 if(location.hash==='#referencias')$('#referencias').open=true;
