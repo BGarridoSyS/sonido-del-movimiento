@@ -13,6 +13,11 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CL">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://bgarridosys.github.io/sonido-del-movimiento/obra.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VisualArtwork", "name": "El sonido del movimiento", "url": "https://bgarridosys.github.io/sonido-del-movimiento/obra.html", "inLanguage": "es", "description": "Exposición inmersiva de sismología, música y patrimonio: Chile, de 17°S a 43°S, convertido en un instrumento que interpreta el ciclo sísmico.", "image": "https://bgarridosys.github.io/sonido-del-movimiento/g/f_vista_m3.jpg", "artform": "Instalación audiovisual", "artMedium": "Impresión 3D, mapping, video y sonido", "creator": {"@type": "Person", "name": "Bastián I. Garrido Kogan"}, "contributor": [{"@type": "Person", "name": "Ana Norambuena"}, {"@type": "Person", "name": "Fabián Astudillo"}, {"@type": "Person", "name": "Enrique Neira"}, {"@type": "Person", "name": "Diego Valenzuela"}, {"@type": "Person", "name": "Carlos Benavides"}, {"@type": "Person", "name": "Cristian Bastías Curivil"}], "about": ["Sismología", "Patrimonio cultural", "Música", "Chile"], "dateCreated": "2026", "video": {"@type": "VideoObject", "name": "El sonido del movimiento · 360°", "embedUrl": "https://www.youtube-nocookie.com/embed/VFVwytNrvDk", "contentUrl": "https://youtu.be/VFVwytNrvDk", "thumbnailUrl": "https://i.ytimg.com/vi/VFVwytNrvDk/hqdefault.jpg", "description": "Exposición inmersiva de sismología, música y patrimonio: Chile, de 17°S a 43°S, convertido en un instrumento que interpreta el ciclo sísmico."}}</script>
 <link rel="alternate" hreflang="es" href="https://bgarridosys.github.io/sonido-del-movimiento/obra.html">
 <link rel="alternate" hreflang="en" href="https://bgarridosys.github.io/sonido-del-movimiento/obra_en.html">
 <link rel="alternate" hreflang="ja" href="https://bgarridosys.github.io/sonido-del-movimiento/obra_ja.html">
@@ -724,6 +729,7 @@ dialog button:focus-visible{outline:2px solid #FF6E52}
       <div class="panel">
         <h3>Derechos y retiro</h3>
         <p>Los textos, fotografías, modelos y animaciones propios son de Bastián I. Garrido Kogan. Las obras, datos y figuras de terceros pertenecen a sus titulares y se citan con su fuente.</p>
+        <p>Los archivos del kit de impresión (carpeta <code>kit/</code>) se publican con licencia <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.es" target="_blank" rel="noopener">Creative Commons BY-NC 4.0</a>: pueden usarse y adaptarse con atribución y sin fines comerciales. El resto del contenido se reserva salvo indicación; ver <a href="LICENSE.md" target="_blank" rel="noopener">LICENSE.md</a>.</p>
         <p>La imagen principal es un render del modelo 3D del relator. Algunas proyecciones de relieve de la maqueta se basan en mapas de VeryGoodMaps.</p>
         <p>Si usted es titular de derechos y objeta algún uso, escriba en <a href="https://github.com/BGarridoSyS/sonido-del-movimiento/issues" target="_blank" rel="noopener">github.com/BGarridoSyS/sonido-del-movimiento/issues</a>; la solicitud se revisará y, de corresponder, el material se retirará con prontitud.</p>
       </div>
@@ -1086,7 +1092,7 @@ function globalT(){return B[mi]+(vid.currentTime||0)}
 function momentAt(t){let m=0;while(m<5&&t>=B[m+1])m++;return m}
 function load(v,m,local,play){view=v;mi=m;pendingSeek=local||0;wantPlay=play;
   vid.poster=`p/${v}_M${m}.jpg`;vid.querySelectorAll("track").forEach(x=>x.remove());vid.src=`vw/${v}_M${m}.mp4`;
-  if(m===1){const tr=document.createElement("track");tr.kind="subtitles";tr.srclang="es";tr.label="Español (relato)";tr.src="vw/M1_es.vtt";tr.default=true;vid.appendChild(tr);tr.addEventListener("load",()=>{try{vid.textTracks[0].mode="showing"}catch(e){}})}
+  if([1,3,4,5].includes(m)){const tr=document.createElement("track");tr.kind="subtitles";tr.srclang="es";tr.label="Español (relato)";tr.src="vw/M"+m+"_es.vtt";tr.default=true;vid.appendChild(tr);tr.addEventListener("load",()=>{try{vid.textTracks[0].mode="showing"}catch(e){}})}
   vid.load();
   document.querySelectorAll('#views button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===v));
   document.querySelectorAll('#chips button').forEach((b,i)=>b.setAttribute('aria-current',i===m));
